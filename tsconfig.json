@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "sourceMap": true,
+    "target": "es6",
+    "module": "esnext",
+    "jsx": "react",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "allowJs": true,
+    "strict": true,
+    "baseUrl": ".",
+    "experimentalDecorators": true,
+    "paths": {
+      "@/*": [
+        "src/*"
+      ],
+      "pages/*": [
+        "src/pages/*"
+      ],
+      "utils/*": [
+        "src/utils/*"
+      ],
+      "services/*": [
+        "src/services/*"
+      ],
+      "stores/*": [
+        "src/stores/*"
+      ],
+      "components": [
+        "src/components/*"
+      ]
+    },
+  },
+  "exclude": [
+    "./server"
+  ]
+}
