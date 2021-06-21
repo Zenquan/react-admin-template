@@ -5,7 +5,7 @@ const { resolve, isProd } = require('./utils'),
 
 const baseConfig = {
   entry: {
-    app: "./src/index.tsx"
+    app: resolve("src/index.tsx")
   },
   output: {
     path: resolve('dist'),
