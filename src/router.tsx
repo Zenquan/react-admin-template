@@ -1,7 +1,6 @@
 import React, { lazy, Component, Suspense } from "react";
 import {
   withRouter,
-  BrowserRouter,
   HashRouter,
   Switch,
   RouteComponentProps,
@@ -18,16 +17,6 @@ const routes: Array<{
     | React.ComponentType<RouteComponentProps<any, StaticContext, unknown>>;
   path?: string
 }> = [
-  {
-    component: lazy(() => import(/* webpackChunkName: "home" */ "pages/Home")),
-    path: "/",
-  },
-  {
-    component: lazy(
-      () => import(/* webpackChunkName: "login" */ "pages/Login")
-    ),
-    path: "/login",
-  },
   // {
   //   component: lazy(
   //     () =>
@@ -116,18 +105,11 @@ const routes: Array<{
   },
 ];
 
-const isProd = process.env.NODE_ENV === 'production';
-(window as any).$origin = `${window.location.origin}${isProd ? '' : '/#'}`;
-
-const Router: any = !isProd
-  ? HashRouter
-  : BrowserRouter;
-
 const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
 class AppRouter extends Component<RouteComponentProps> {
   render() {
     return (
-      <Router>
+      <HashRouter>
         <Suspense
           fallback={
             <Space size="large" className="loading all-center">
@@ -157,7 +139,7 @@ class AppRouter extends Component<RouteComponentProps> {
               )}
           </Switch>
         </Suspense>
-      </Router>
+      </HashRouter>
     );
   }
 }

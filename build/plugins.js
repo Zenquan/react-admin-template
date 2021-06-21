@@ -31,7 +31,7 @@ const prodPlugins = [
     // 描述 react 动态链接库的文件内容
     manifest: require(resolve('lib/react-mainfest.json')),
   }),
-  new BundleAnalyzerPlugin()
+  // new BundleAnalyzerPlugin()
 ];
 
 const plugins = isProd ? basePlugins.concat(prodPlugins) : basePlugins.concat(devPlugins);
