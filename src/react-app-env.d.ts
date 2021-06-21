@@ -19,5 +19,6 @@ declare type CompItemType =  {
   component: string,
   path: string,
   key: string,
-  sub?: CompItemType[]
+  sub?: CompItemType[],
+  icon?: string
 }

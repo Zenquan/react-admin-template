@@ -26,6 +26,7 @@ const getMenus = (roleType: string) => {
       component: '表格',
       path: '/table',
       key: '/table',
+      icon: 'table',
       sub: [
         // {
         //   component: '基本表格',
@@ -47,6 +48,7 @@ const getMenus = (roleType: string) => {
       component: '图表',
       path: '/chart',
       key: '/chart',
+      icon: 'chart',
       sub: [{
           component: '折线图',
           path: '/chart/lineChart',
@@ -61,6 +63,7 @@ const getMenus = (roleType: string) => {
       component: '组件',
       path: '/components',
       key: '/components',
+      icon: 'components',
       sub: [{
           component: '富文本编辑器',
           path: '/components/richText',
@@ -79,6 +82,7 @@ const getMenus = (roleType: string) => {
       component: 'Excel',
       path: '/excel',
       key: '/excel',
+      icon: 'excel',
       sub: [{
           component: '导出excel',
           path: '/excel/export',
@@ -92,6 +96,7 @@ const getMenus = (roleType: string) => {
         component: '表格',
         path: '/table',
         key: '/table',
+        icon: 'table',
         sub: [
           // {
           //   component: '基本表格',
@@ -114,6 +119,7 @@ const getMenus = (roleType: string) => {
         component: '组件',
         path: '/components',
         key: '/components',
+        icon: 'components',
         sub: [{
             component: '富文本编辑器',
             path: '/components/richText',

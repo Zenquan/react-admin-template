@@ -3,7 +3,10 @@ import { Menu, Layout, Dropdown } from 'antd';
 import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
-  MailOutlined,
+  TableOutlined,
+  BarChartOutlined,
+  AppstoreOutlined,
+  FileExcelOutlined
 } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
 import { useStore } from 'stores'
@@ -66,7 +69,7 @@ const Home: FC<IHome> = ({history}: IHome) => {
   const headMenu = (
     <Menu>
       <Menu.Item key="1">
-      <span onClick={logout}>退出登录</span>
+        <span onClick={logout}>退出登录</span>
       </Menu.Item>
     </Menu>
   );
@@ -78,8 +81,20 @@ const Home: FC<IHome> = ({history}: IHome) => {
     </Dropdown>
   )
 
-  const renderSlider = () => (
-    <Sider trigger={null} collapsible
+  const renderSlider = () => {
+    const renderIcon = (icon: string) => {
+      if (icon === 'table') {
+        return <TableOutlined />
+      } else if (icon === 'chart') {
+        return <BarChartOutlined />
+      } else if (icon === 'components') {
+        return <AppstoreOutlined />
+      } else if (icon === 'excel') {
+        return <FileExcelOutlined />
+      }
+    }
+
+    return <Sider trigger={null} collapsible
           collapsed={collapsed}
           className={style['home']}>
         <Menu className={style['menus']}
@@ -90,9 +105,9 @@ const Home: FC<IHome> = ({history}: IHome) => {
           >
             {
               menus && menus.map((menu: CompItemType) => {
-                const {component, path, sub} = menu
+                const {component, path, sub, icon} = menu
                 return (
-                  <SubMenu key={path} icon={<MailOutlined />} title={component}>
+                  <SubMenu key={path} icon={renderIcon(icon)} title={component}>
                     {
                       sub && sub.map(((s: CompItemType) => {
                         const {component, path, key} = s
@@ -108,7 +123,7 @@ const Home: FC<IHome> = ({history}: IHome) => {
             }
           </Menu>
       </Sider>
-  )
+  }
 
   const renderContent = () => (
     <>
