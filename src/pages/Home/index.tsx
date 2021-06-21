@@ -15,14 +15,6 @@ import AppRouter from '../../router';
 
 const { Header, Sider, Content, Footer } = Layout;
 const { SubMenu } = Menu;
-
-type CompItemType =  {
-  component: string,
-  path: string,
-  key: string,
-  sub?: CompItemType[]
-}
-
 interface IHome {
   history: any
 }

@@ -28,41 +28,86 @@ const routes: Array<{
     ),
     path: "/login",
   },
+  // {
+  //   component: lazy(
+  //     () =>
+  //       import(
+  //         /* webpackChunkName: "table-basicTable" */ "pages/Table/BasicTable"
+  //       )
+  //   ),
+  //   path: "/table/basicTable",
+  // },
   {
     component: lazy(
       () =>
         import(
-          /* webpackChunkName: "table-basicTable" */ "pages/Table/BasicTable"
+          /* webpackChunkName: "table-editableTable" */ "pages/Table/EditableTable"
         )
     ),
-    path: "/table/basicTable",
+    path: "/table/editableTable",
   },
   {
     component: lazy(
       () =>
         import(
-          /* webpackChunkName: "table-advancedTable" */ "pages/Table/AdvancedTable"
+          /* webpackChunkName: "table-dragSortingTable" */ "pages/Table/DragSortingTable"
         )
     ),
-    path: "/table/advancedTable",
+    path: "/table/dragSortingTable",
   },
   {
     component: lazy(
       () =>
         import(
-          /* webpackChunkName: "table-asynchronousTable" */ "pages/Table/AsynchronousTable"
+          /* webpackChunkName: "chart-linechart" */ "pages/Chart/LineChart"
         )
     ),
-    path: "/table/asynchronousTable",
+    path: "/chart/lineChart",
   },
   {
     component: lazy(
       () =>
         import(
-          /* webpackChunkName: "chart-shadowchart" */ "pages/Chart/ShadowChart"
+          /* webpackChunkName: "chart-piechart" */ "pages/Chart/PieChart"
         )
     ),
-    path: "/chart/shadowChart",
+    path: "/chart/pieChart",
+  },
+  {
+    component: lazy(
+      () =>
+        import(
+          /* webpackChunkName: "components-richText" */ "pages/Components/RichText"
+        )
+    ),
+    path: "/components/richText",
+  },
+  {
+    component: lazy(
+      () =>
+        import(
+          /* webpackChunkName: "components-markdown" */ "pages/Components/Markdown"
+        )
+    ),
+    path: "/components/markdown",
+  },
+  {
+    component: lazy(
+      () =>
+        import(
+          /* webpackChunkName: "components-jsonEditor" */ "pages/Components/JsonEditor"
+        )
+    ),
+    path: "/components/jsonEditor",
+  },
+  {
+    component: lazy(
+      () =>
+        import(
+          /* webpackChunkName: "excel-export" */ "pages/Excel/Export"
+        )
+    ),
+    path: "/excel/export",
   },
   {
     component: lazy(

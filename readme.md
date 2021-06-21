@@ -2,6 +2,18 @@
 
 > react + antd的管理后台系统方案
 
+## 账号数据
+```
+现在采用mock数据, 都是模拟数据
+
+管理员
+账号：admin
+密码：admin
+
+运营
+账号：zenquan
+密码：zenquan
+```
 ## 后端接口
 - login
  ```js
