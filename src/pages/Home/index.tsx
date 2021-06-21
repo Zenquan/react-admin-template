@@ -136,9 +136,11 @@ const Home: FC<IHome> = ({history}: IHome) => {
         }}
       >
         {
-          (location.href === 'http://127.0.0.1:8000/#/')
+          (location.href === 'http://127.0.0.1:8000/#/' || location.href === 'https://react-admin-template.vercel.app/#/')
             ? (
-              <p style={{ fontSize: 30, fontWeight: 500, margin: 20, }}>🐕 🐩 🐈 &nbsp;Welcome to React Admin!</p>
+              <p style={{ fontSize: 30, fontWeight: 500, margin: 20, }}>
+                欢迎来到React Admin后台系统
+              </p>
             ) : <AppRouter/>
         }
       </Content>
