@@ -107,7 +107,7 @@ const Home: FC<IHome> = ({history}: IHome) => {
               menus && menus.map((menu: CompItemType) => {
                 const {component, path, sub, icon} = menu
                 return (
-                  <SubMenu key={path} icon={renderIcon(icon)} title={component}>
+                  <SubMenu key={path} icon={icon && renderIcon(icon)} title={component}>
                     {
                       sub && sub.map(((s: CompItemType) => {
                         const {component, path, key} = s
