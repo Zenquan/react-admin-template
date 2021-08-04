@@ -1,4 +1,12 @@
+declare namespace NodeJS {
+  interface ProcessEnv {
+    readonly NODE_ENV: 'development' | 'production' | 'test';
+    readonly PUBLIC_URL: string;
+  }
+}
+
 declare module 'utils';
+declare module 'utils/*';
 declare module 'stores';
 declare module 'services';
 declare module 'components/*';
