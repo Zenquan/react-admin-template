@@ -15,7 +15,7 @@ declare module '*.bmp';
 declare module '*.tiff';
 declare module '*.less';
 
-declare type CompItemType =  {
+declare type CompItemType = {
   component: string,
   path: string,
   key: string,
