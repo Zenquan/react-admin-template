@@ -10,11 +10,10 @@ import {
 } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
 import { useStore } from 'stores'
-import { UserInfoType } from 'stores/login';
 import style from './index.module.less'
 import classNames from 'classnames';
 import { home } from 'services';
-import AppRouter from '../../router';
+import AppRouter from 'components/Router';
 
 const { Header, Sider, Content, Footer } = Layout;
 const { SubMenu } = Menu;

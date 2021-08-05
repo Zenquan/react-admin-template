@@ -10,13 +10,13 @@ const login = async (config: AxiosRequestConfig & {
   passWord: string,
   remember: boolean
 }): Promise<any> => {
-  return !isProd
+  return isProd
       ? getUsers(config.userName, config.passWord, config.remember)
       : API && API.post('/login', { ...config })
   }
 
 const menus = async (config: AxiosRequestConfig): Promise<any> => {
-  return !isProd
+  return isProd
       ? getMenus(`${config.params.roleType}`)
       : API && API.get('/menus', { ...config })
 }

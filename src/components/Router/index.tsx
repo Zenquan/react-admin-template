@@ -17,20 +17,11 @@ const routes: Array<{
     | React.ComponentType<RouteComponentProps<any, StaticContext, unknown>>;
   path?: string
 }> = [
-  // {
-  //   component: lazy(
-  //     () =>
-  //       import(
-  //         /* webpackChunkName: "table-basicTable" */ "pages/Table/BasicTable"
-  //       )
-  //   ),
-  //   path: "/table/basicTable",
-  // },
   {
     component: lazy(
       () =>
         import(
-          /* webpackChunkName: "table-editableTable" */ "pages/Table/EditableTable"
+          "pages/Table/EditableTable"
         )
     ),
     path: "/table/editableTable",
@@ -39,7 +30,7 @@ const routes: Array<{
     component: lazy(
       () =>
         import(
-          /* webpackChunkName: "table-dragSortingTable" */ "pages/Table/DragSortingTable"
+          "pages/Table/DragSortingTable"
         )
     ),
     path: "/table/dragSortingTable",
@@ -48,7 +39,7 @@ const routes: Array<{
     component: lazy(
       () =>
         import(
-          /* webpackChunkName: "chart-linechart" */ "pages/Chart/LineChart"
+          "pages/Chart/LineChart"
         )
     ),
     path: "/chart/lineChart",
@@ -57,7 +48,7 @@ const routes: Array<{
     component: lazy(
       () =>
         import(
-          /* webpackChunkName: "chart-piechart" */ "pages/Chart/PieChart"
+          "pages/Chart/PieChart"
         )
     ),
     path: "/chart/pieChart",
@@ -66,7 +57,7 @@ const routes: Array<{
     component: lazy(
       () =>
         import(
-          /* webpackChunkName: "components-richText" */ "pages/Components/RichText"
+          "pages/Components/RichText"
         )
     ),
     path: "/components/richText",
@@ -75,7 +66,7 @@ const routes: Array<{
     component: lazy(
       () =>
         import(
-          /* webpackChunkName: "components-markdown" */ "pages/Components/Markdown"
+          "pages/Components/Markdown"
         )
     ),
     path: "/components/markdown",
@@ -84,7 +75,7 @@ const routes: Array<{
     component: lazy(
       () =>
         import(
-          /* webpackChunkName: "components-jsonEditor" */ "pages/Components/JsonEditor"
+          "pages/Components/JsonEditor"
         )
     ),
     path: "/components/jsonEditor",
@@ -93,14 +84,14 @@ const routes: Array<{
     component: lazy(
       () =>
         import(
-          /* webpackChunkName: "excel-export" */ "pages/Excel/Export"
+          "pages/Excel/Export"
         )
     ),
     path: "/excel/export",
   },
   {
     component: lazy(
-      () => import(/* webpackChunkName: "not-found" */ "pages/NotFound")
+      () => import("pages/NotFound")
     ),
   },
 ];

@@ -5,8 +5,9 @@ declare namespace NodeJS {
   }
 }
 
+declare module '@/*';
+declare module 'pages/*';
 declare module 'utils';
-declare module 'utils/*';
 declare module 'stores';
 declare module 'services';
 declare module 'components/*';
@@ -29,4 +30,10 @@ declare type CompItemType = {
   key: string,
   sub?: CompItemType[],
   icon?: string
+}
+
+declare type UserInfoType = {
+  roleType: number,
+  userName: string,
+  avatar: string
 }

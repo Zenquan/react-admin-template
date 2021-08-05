@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Redirect, RouteComponentProps } from "react-router-dom";
 import { StaticContext } from "react-router";
-import { isAuthenticated } from "utils/session";
+import { isAuthenticated } from "utils";
 
 const CommonRoute = ({
   component: MyComponent,
