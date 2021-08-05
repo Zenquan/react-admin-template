@@ -73,10 +73,10 @@ const ExcelExport = () => {
       return
     }
     /* 创建worksheet */
-    var ws = XLSX.utils.json_to_sheet(xls);
+    const ws = XLSX.utils.json_to_sheet(xls);
 
     /* 新建空workbook，然后加入worksheet */
-    var wb = XLSX.utils.book_new();
+    const wb = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(wb, ws, "People");
 
     /* 生成xlsx文件 */

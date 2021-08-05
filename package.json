@@ -4,7 +4,10 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "serve": "vite preview"
+    "serve": "vite preview",
+    "lint:script": "eslint -c .eslintrc.js 'src/**/*.ts' 'src/**/*.tsx' --cache --fix",
+    "lint:style": "stylelint src/**/*.scss src/**/*.css --fix",
+    "lint": "run-p lint:script lint:style"
   },
   "dependencies": {
     "@ant-design/icons": "^4.6.2",

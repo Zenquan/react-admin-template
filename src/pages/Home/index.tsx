@@ -158,7 +158,7 @@ const Home: FC<IHome> = ({history}: IHome) => {
             ) : <AppRouter/>
         }
       </Content>
-      <Footer style={{textAlign: 'center'}}>react-admin-template ©2021 Created by Jomsou@qq.com <a target='_blank' href='https://github.com/zenquan/react-admin-template'>github地址</a></Footer>
+      <Footer style={{textAlign: 'center'}}>react-admin-template ©2021 Created by Jomsou@qq.com <a target='_blank' href='https://github.com/zenquan/react-admin-template' rel="noreferrer">github地址</a></Footer>
     </>
   )
 

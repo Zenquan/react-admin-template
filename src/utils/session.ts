@@ -29,7 +29,7 @@ function _getCookie (name: string) {
 }
 
 function _setCookie (name: string, value: string, expire?: number) {
-  let date: Date = new Date()
+  const date: Date = new Date()
   date.setDate(date.getDate())
   document.cookie = name + '=' + escape(value) + '; path=/' +
     (expire ? ';expires=' + date.toUTCString() : '')

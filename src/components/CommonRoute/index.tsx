@@ -15,7 +15,7 @@ const CommonRoute = ({
   <Route
     {...rest}
     render={(props) =>
-      !!isAuthenticated() ? (
+      isAuthenticated() ? (
         <MyComponent {...props} />
       ) : (
         <Redirect
