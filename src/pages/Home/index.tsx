@@ -9,8 +9,7 @@ import {
   FileExcelOutlined
 } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
-import { useStore } from 'stores'
-import { UserInfoType } from 'stores/login';
+import { useStore } from 'stores';
 import style from './index.module.less'
 import classNames from 'classnames';
 import { home } from 'services';

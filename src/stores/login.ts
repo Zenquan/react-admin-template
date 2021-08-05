@@ -1,13 +1,6 @@
 import { action, decorate, observable } from "mobx";
 import { persist } from 'mobx-persist'
-import { isAuthenticated,authenticateSuccess,logout } from 'utils/session'
-
-export type UserInfoType = {
-  roleType: number,
-  userName: string,
-  avatar: string
-}
-
+import { isAuthenticated,authenticateSuccess,logout } from 'utils'
 export class LoginStore {
   isLogin = !!isAuthenticated()
   userInfo: UserInfoType = {

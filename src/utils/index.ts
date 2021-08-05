@@ -1,7 +1,13 @@
 import { HomeAPI } from './request';
-import * as session from './session';
+import {
+  isAuthenticated,
+  authenticateSuccess,
+  logout
+} from './session';
 
 export {
   HomeAPI,
-  session
+  isAuthenticated,
+  authenticateSuccess,
+  logout
 };
