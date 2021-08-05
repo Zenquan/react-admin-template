@@ -19,5 +19,5 @@
 - echarts
 
 搭建脚手架:【master分支】webpack5
+
 vite: 【vite分支】vite2
-cra脚手架: 【cra分支】create-react-app
