@@ -1,6 +1,6 @@
 import { action, decorate, observable } from "mobx";
 import { persist } from 'mobx-persist'
-import { isAuthenticated,authenticateSuccess,logout } from 'utils'
+import { isAuthenticated,authenticateSuccess, logout } from 'utils'
 export class LoginStore {
   isLogin = !!isAuthenticated()
   userInfo: UserInfoType = {
@@ -25,6 +25,11 @@ export class LoginStore {
     } else {
       logout()
       this.isLogin = false
+      this.setUserInfo({
+        userName: '',
+        avatar: '',
+        roleType: 0
+      })
     }
 
   }

@@ -23,6 +23,9 @@ const baseConfig = {
       'components': resolve('src/components')
     },
   },
+  stats: {
+    errorDetails: true, // --display-error-details
+  },
   plugins,
   module: {
     rules: loaders
