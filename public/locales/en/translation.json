@@ -1,3 +1,14 @@
 {
-  "greet": "welcome using react admin template 👏🏼👏🏼👏🏼！"
+  "greet": "welcome using react admin template 👏🏼👏🏼👏🏼！",
+  "homeRouteText": "Home",
+  "table": {
+    "dragSortingTable": {
+      "menu": "Table",
+      "subMenu": "DragSortingTable"
+    },
+    "editableTable": {
+      "menu": "Table",
+      "subMenu": "EditableTable"
+    }
+  }
 }

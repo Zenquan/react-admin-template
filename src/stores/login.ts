@@ -9,6 +9,8 @@ export class LoginStore {
     avatar: ''
   }
 
+  lng = 'cn'
+
   setUserInfo (userInfo: UserInfoType) {
     this.userInfo = userInfo
     localStorage.setItem('userInfo', JSON.stringify(userInfo))
@@ -34,6 +36,13 @@ export class LoginStore {
 
   }
 
+  getLng () {
+    return this.lng
+  }
+
+  setLng (lng: string ) {
+    this.lng = lng
+  }
 }
 
 decorate(LoginStore, {
@@ -41,7 +50,10 @@ decorate(LoginStore, {
   setUserInfo: action,
   getUserInfo: action,
   isLogin: observable,
-  toggleLogin: action
+  toggleLogin: action,
+  lng: observable,
+  getLng: action,
+  setLng: action
 })
 
 export default new LoginStore();

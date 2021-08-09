@@ -1,3 +1,14 @@
 {
-  "greet": "欢迎使用react admin template 👏🏼👏🏼👏🏼！"
+  "greet": "欢迎使用react admin template 👏🏼👏🏼👏🏼！",
+  "homeRouteText": "首页",
+  "table": {
+    "DragSortingTable": {
+      "menu": "表格",
+      "subMenu": "拖拽排序表格"
+    },
+    "editableTable": {
+      "menu": "表格",
+      "subMenu": "可编辑行表格"
+    }
+  }
 }

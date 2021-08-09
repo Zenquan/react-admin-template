@@ -28,21 +28,21 @@ const Home: FC<IHome> = ({history}: IHome) => {
   })
   const [menus, setMenus] = useState<Array<CompItemType> | null>(null)
   const { loginStore } = useStore()
-  const { t, changeLanguage } = useChangeLang();
+  const { changeLanguage } = useChangeLang();
 
   const toggleCollapsed = () => {
     setCollapsed(!collapsed);
   };
 
-  const initUserInfo = (fn: Function) => {
+  const initUserInfo = (fn: Function, lng: string) => {
     const userInfoStorage = localStorage.getItem('userInfo');
     const userInfo = userInfoStorage ? JSON.parse(userInfoStorage) : loginStore.getUserInfo();
     setUserInfo(userInfo)
-    userInfo.roleType && fn && fn(userInfo.roleType)
+    userInfo.roleType && fn && fn(userInfo.roleType, lng)
   }
 
-  const getMenus = async (roleType: number) => {
-    const data = await home.menus({params: {roleType}});
+  const getMenus = async (roleType: number, lng: string) => {
+    const data = await home.menus({params: { roleType, lng }});
     console.log('data>>>', data);
     if (data.ret === '0') {
       const {menus} = data.data
@@ -80,10 +80,16 @@ const Home: FC<IHome> = ({history}: IHome) => {
   const translationOptions = () => (
     <Menu>
       <Menu.Item key="1">
-        <span onClick={() => changeLanguage('cn')}>中文</span>
+        <span onClick={() => {
+          changeLanguage('cn')
+          loginStore.setLng('cn')
+        }}>中文</span>
       </Menu.Item>
       <Menu.Item key="2">
-        <span onClick={() => changeLanguage('en')}>English</span>
+        <span onClick={() => {
+          changeLanguage('en')
+          loginStore.setLng('en')
+        }}>English</span>
       </Menu.Item>
     </Menu>
   )
@@ -127,8 +133,8 @@ const Home: FC<IHome> = ({history}: IHome) => {
   )
 
   useEffect(() => {
-    initUserInfo(getMenus);
-  }, [])
+    initUserInfo(getMenus, loginStore.lng);
+  }, [loginStore.lng])
 
   return (
     <Layout>
