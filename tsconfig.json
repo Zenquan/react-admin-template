@@ -34,6 +34,12 @@
     ],
     "components": [
       "src/components/*"
+    ],
+    "layout": [
+      "src/layout/*"
+    ],
+    "hooks": [
+      "src/hooks/*"
     ]
   }
 }

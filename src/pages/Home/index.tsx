@@ -2,7 +2,8 @@ import React, { FC, useEffect, useState, memo } from 'react';
 import { Menu, Layout, Dropdown } from 'antd';
 import {
   MenuUnfoldOutlined,
-  MenuFoldOutlined
+  MenuFoldOutlined,
+  TranslationOutlined
 } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
 import { useStore } from 'stores'
@@ -11,6 +12,7 @@ import classNames from 'classnames';
 import { home } from 'services';
 import AppRouter from 'components/Router';
 import SideBar from 'layout/SideBar'
+import { useChangeLang } from 'hooks';
 
 const { Header, Content, Footer } = Layout;
 interface IHome {
@@ -26,6 +28,8 @@ const Home: FC<IHome> = ({history}: IHome) => {
   })
   const [menus, setMenus] = useState<Array<CompItemType> | null>(null)
   const { loginStore } = useStore()
+  const { t, changeLanguage } = useChangeLang();
+
   const toggleCollapsed = () => {
     setCollapsed(!collapsed);
   };
@@ -73,6 +77,23 @@ const Home: FC<IHome> = ({history}: IHome) => {
     </Dropdown>
   )
 
+  const translationOptions = () => (
+    <Menu>
+      <Menu.Item key="1">
+        <span onClick={() => changeLanguage('cn')}>中文</span>
+      </Menu.Item>
+      <Menu.Item key="2">
+        <span onClick={() => changeLanguage('en')}>English</span>
+      </Menu.Item>
+    </Menu>
+  )
+
+  const renderTranslation = () => (
+    <Dropdown overlay={translationOptions} trigger={['click']}>
+      <TranslationOutlined className={style['translate']} />
+    </Dropdown>
+  )
+
   const renderContent = () => (
     <>
       <Header className={
@@ -88,6 +109,7 @@ const Home: FC<IHome> = ({history}: IHome) => {
           className: 'trigger',
           onClick: toggleCollapsed,
         })}
+        {renderTranslation()}
         {loginStore.isLogin ? login : notLogin}
       </Header>
       <Content

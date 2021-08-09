@@ -24,5 +24,7 @@ vite: 【vite分支】vite2
 
 ## TODO
 - [ ] 抽离出Layout的Header、Footer组件
+- [ ] 保留浏览过的页面的tabs
 - [ ] 国际化
 - [ ] 适配移动端
+- [ ] 优化首页

@@ -16,7 +16,8 @@ export default defineConfig({
       'services': resolve('src/services'),
       'stores': resolve('src/stores'),
       'components': resolve('src/components'),
-      'layout': resolve('src/layout')
+      'layout': resolve('src/layout'),
+      'hooks': resolve('src/hooks')
     },
   },
   plugins: [
