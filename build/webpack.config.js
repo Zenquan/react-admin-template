@@ -20,7 +20,8 @@ const baseConfig = {
       'utils': resolve('src/utils'),
       'services': resolve('src/services'),
       'stores': resolve('src/stores'),
-      'components': resolve('src/components')
+      'components': resolve('src/components'),
+      'layout': resolve('src/layout')
     },
   },
   stats: {

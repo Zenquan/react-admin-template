@@ -3,10 +3,6 @@ import { Menu, Layout, Dropdown } from 'antd';
 import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
-  TableOutlined,
-  BarChartOutlined,
-  AppstoreOutlined,
-  FileExcelOutlined
 } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
 import { useStore } from 'stores';
@@ -14,9 +10,9 @@ import style from './index.module.less'
 import classNames from 'classnames';
 import { home } from 'services';
 import AppRouter from 'components/Router';
+import SideBar from 'layout/SideBar';
 
-const { Header, Sider, Content, Footer } = Layout;
-const { SubMenu } = Menu;
+const { Header, Content, Footer } = Layout;
 interface IHome {
   history: any
 }
@@ -49,9 +45,6 @@ const Home: FC<IHome> = ({history}: IHome) => {
       setMenus(menus)
     }
   }
-  const selectMenuItem = (path: string) => {
-    history.push(path)
-  }
 
   const notLogin = (
     <div>
@@ -80,67 +73,23 @@ const Home: FC<IHome> = ({history}: IHome) => {
     </Dropdown>
   )
 
-  const renderSlider = () => {
-    const renderIcon = (icon: string) => {
-      if (icon === 'table') {
-        return <TableOutlined />
-      } else if (icon === 'chart') {
-        return <BarChartOutlined />
-      } else if (icon === 'components') {
-        return <AppstoreOutlined />
-      } else if (icon === 'excel') {
-        return <FileExcelOutlined />
-      }
-    }
-
-    return <Sider trigger={null} collapsible
-          collapsed={collapsed}
-          className={style['home']}>
-        <Menu className={style['menus']}
-            defaultSelectedKeys={['1']}
-            defaultOpenKeys={['sub1']}
-            mode="inline"
-            theme="dark"
-          >
-            {
-              menus && menus.map((menu: CompItemType) => {
-                const {component, path, sub, icon} = menu
-                return (
-                  <SubMenu key={path} icon={icon && renderIcon(icon)} title={component}>
-                    {
-                      sub && sub.map(((s: CompItemType) => {
-                        const {component, path, key} = s
-                        return (<Menu.Item key={key}
-                                  onClick={e => selectMenuItem(path)}>
-                                {component}
-                              </Menu.Item>)
-                      }))
-                    }
-                  </SubMenu>
-                )
-              })
-            }
-          </Menu>
-      </Sider>
-  }
-
   const renderContent = () => (
     <>
       <Header className={
-              classNames(
-                style["site-layout-background"],
-                style['header']
-              )}>
-            {React.createElement(
-                collapsed
-                  ? MenuUnfoldOutlined
-                  : MenuFoldOutlined,
-            {
-              className: 'trigger',
-              onClick: toggleCollapsed,
-            })}
-            {loginStore.isLogin ? login : notLogin}
-          </Header>
+          classNames(
+            style["site-layout-background"],
+            style['header']
+          )}>
+        {React.createElement(
+            collapsed
+              ? MenuUnfoldOutlined
+              : MenuFoldOutlined,
+        {
+          className: 'trigger',
+          onClick: toggleCollapsed,
+        })}
+        {loginStore.isLogin ? login : notLogin}
+      </Header>
       <Content
         className={style["site-layout-background"]}
         style={{
@@ -149,14 +98,7 @@ const Home: FC<IHome> = ({history}: IHome) => {
           minHeight: 280,
         }}
       >
-        {
-          (location.href === 'http://127.0.0.1:8000/#/' || location.href === 'https://react-admin-template.vercel.app/#/')
-            ? (
-              <p style={{ fontSize: 30, fontWeight: 500, margin: 20, }}>
-                欢迎来到React Admin后台系统
-              </p>
-            ) : <AppRouter/>
-        }
+        <AppRouter/>
       </Content>
       <Footer style={{textAlign: 'center'}}>react-admin-template ©2021 Created by Jomsou@qq.com <a target='_blank' href='https://github.com/zenquan/react-admin-template'>github地址</a></Footer>
     </>
@@ -168,7 +110,13 @@ const Home: FC<IHome> = ({history}: IHome) => {
 
   return (
     <Layout>
-      {renderSlider()}
+      {
+        menus &&
+          <SideBar menus={menus}
+            collapsed={collapsed}
+            history={history}
+          />
+      }
       <Layout className={style["site-layout"]}>
           {renderContent()}
         </Layout>

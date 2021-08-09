@@ -35,7 +35,7 @@ const Login: FC<ILogin> = ({history}: ILogin) => {
         avatar
       });
       await loginStore.toggleLogin(true, {userName})
-      await history.push('/');
+      await history.push('/dashboard');
     } else {
       message.error(`${data.msg}, 用户名和密码不符`)
     }

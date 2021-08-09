@@ -17,6 +17,16 @@ const routes: Array<{
     | React.ComponentType<RouteComponentProps<any, StaticContext, unknown>>;
   path?: string
 }> = [
+  {
+    component: lazy(
+      () =>
+        import(
+          /* webpackChunkName: "dashboard" */  "pages/Dashboard"
+        )
+    ),
+    path: "/dashboard",
+  },
+
   // {
   //   component: lazy(
   //     () =>
