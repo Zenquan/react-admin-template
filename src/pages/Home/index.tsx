@@ -10,7 +10,7 @@ import style from './index.module.less'
 import classNames from 'classnames';
 import { home } from 'services';
 import AppRouter from 'components/Router';
-import SideBar from '../../layout/SideBar'
+import SideBar from 'layout/SideBar'
 
 const { Header, Content, Footer } = Layout;
 interface IHome {

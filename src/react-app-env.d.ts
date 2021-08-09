@@ -11,6 +11,7 @@ declare module 'utils';
 declare module 'stores';
 declare module 'services';
 declare module 'components/*';
+declare module 'layout/*';
 declare module '@types/*';
 declare module 'number-random';
 declare module 'markdown-it';

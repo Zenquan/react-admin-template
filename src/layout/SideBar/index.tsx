@@ -5,7 +5,8 @@ import {
   BarChartOutlined,
   AppstoreOutlined,
   FileExcelOutlined,
-  MehOutlined
+  MehOutlined,
+  HomeOutlined
 } from '@ant-design/icons';
 import style from './index.module.less'
 
@@ -34,6 +35,8 @@ const SlideBar: FC<ISlideBar> = ({
       return <FileExcelOutlined />
     } else if (icon === '404') {
       return <MehOutlined />
+    } else if (icon === 'dashboard') {
+      return <HomeOutlined />
     }
   }
 
@@ -66,6 +69,7 @@ const SlideBar: FC<ISlideBar> = ({
                     }
                   </SubMenu>
                   : <Menu.Item key={path}
+                      icon={icon && renderIcon(icon)}
                       onClick={e => selectMenuItem(path)}>
                     {component}
                   </Menu.Item>
