@@ -3,7 +3,7 @@ import { Result, Button } from 'antd';
 
 const NotFound: FC = (({history}: any) => {
   const backHome = () => {
-    history.push('/')
+    history.push('/dashboard')
   }
   return (
     <Result

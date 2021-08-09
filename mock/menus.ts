@@ -25,7 +25,7 @@ const getMenus = (roleType: string) => {
     {
       component: '表格',
       path: '/table',
-      key: '/table',
+      key: 'table',
       icon: 'table',
       sub: [
         // {
@@ -36,57 +36,57 @@ const getMenus = (roleType: string) => {
         {
           component: '可编辑行表格',
           path: '/table/editableTable',
-          key: '/table/editableTable'
+          key: 'table/editableTable'
         },
         {
           component: '拖拽排序表格',
           path: '/table/dragSortingTable',
-          key: '/table/dragSortingTable'
+          key: 'table/dragSortingTable'
         },
       ]
     }, {
       component: '图表',
       path: '/chart',
-      key: '/chart',
+      key: 'chart',
       icon: 'chart',
       sub: [{
           component: '折线图',
           path: '/chart/lineChart',
-          key: '/chart/lineChart'
+          key: 'chart/lineChart'
         }, {
           component: '饼图',
           path: '/chart/pieChart',
-          key: '/chart/pieChart'
+          key: 'chart/pieChart'
         }
       ]
     }, {
       component: '组件',
       path: '/components',
-      key: '/components',
+      key: 'components',
       icon: 'components',
       sub: [{
           component: '富文本编辑器',
           path: '/components/richText',
-          key: '/components/richText'
+          key: 'components/richText'
         }, {
           component: 'Markdown',
           path: '/components/markdown',
-          key: '/components/markdown'
+          key: 'components/markdown'
         }, {
           component: 'JSON编辑器',
           path: '/components/jsonEditor',
-          key: '/components/jsonEditor'
+          key: 'components/jsonEditor'
         },
       ]
     }, {
       component: 'Excel',
       path: '/excel',
-      key: '/excel',
+      key: 'excel',
       icon: 'excel',
       sub: [{
           component: '导出excel',
           path: '/excel/export',
-          key: '/excel/export'
+          key: 'excel/export'
         },
       ]
     }]
@@ -95,7 +95,7 @@ const getMenus = (roleType: string) => {
       {
         component: '表格',
         path: '/table',
-        key: '/table',
+        key: 'table',
         icon: 'table',
         sub: [
           // {
@@ -106,19 +106,19 @@ const getMenus = (roleType: string) => {
           {
             component: '可编辑行表格',
             path: '/table/editableTable',
-            key: '/table/editableTable'
+            key: 'table/editableTable'
           },
           {
             component: '拖拽排序表格',
             path: '/table/dragSortingTable',
-            key: '/table/dragSortingTable'
+            key: 'table/dragSortingTable'
           },
         ]
       },
       {
         component: '组件',
         path: '/components',
-        key: '/components',
+        key: 'components',
         icon: 'components',
         sub: [{
             component: '富文本编辑器',
@@ -129,6 +129,22 @@ const getMenus = (roleType: string) => {
       }
     ]
   }
+
+  result.data.menus.unshift({
+    component: '系统首页',
+    path: '/dashboard',
+    key: '/dashboard',
+    icon: 'dashboard',
+    sub: []
+  })
+
+  result.data.menus.push({
+    component: '404页',
+    path: '/404',
+    key: '404',
+    icon: '404',
+    sub: []
+  })
 
   return result
 }

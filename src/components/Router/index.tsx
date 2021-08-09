@@ -21,6 +21,15 @@ const routes: Array<{
     component: lazy(
       () =>
         import(
+          "pages/Dashboard"
+        )
+    ),
+    path: "/dashboard",
+  },
+  {
+    component: lazy(
+      () =>
+        import(
           "pages/Table/EditableTable"
         )
     ),
