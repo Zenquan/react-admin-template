@@ -3,8 +3,10 @@ import ReactECharts from 'echarts-for-react';
 import CommonBreadcrumb from 'components/CommonBreadcrumb'
 import option from './option'
 import style from '../index.module.less'
+import { useChangeLang } from 'hooks';
 
 export default function LineChart () {
+  const { t } = useChangeLang();
   const onChartReadyCallback = () => {
 
   }
@@ -15,7 +17,10 @@ export default function LineChart () {
 
   return (
     <div>
-      <CommonBreadcrumb arr={['图表', '渐变堆叠面积图']}/>
+      <CommonBreadcrumb arr={[
+        t('chart.lineChart.menu'),
+        t('chart.lineChart.subMenu')
+      ]}/>
       <ReactECharts
         option={option}
         notMerge={true}

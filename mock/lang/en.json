@@ -3,7 +3,7 @@
     {
       "component": "Dashboard",
       "path": "/dashboard",
-      "key": "/dashboard",
+      "key": "dashboard",
       "icon": "dashboard",
       "sub": []
     },

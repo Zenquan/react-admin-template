@@ -3,6 +3,7 @@ import CommonBreadcrumb from "components/CommonBreadcrumb";
 import { Input } from "antd";
 import MarkdownIt from "markdown-it";
 import hljs from 'highlight.js';
+import { useChangeLang } from 'hooks';
 import style from './index.module.less';
 import 'highlight.js/styles/atom-one-dark.css'
 
@@ -27,6 +28,7 @@ const md = new MarkdownIt({
 export default function Markwodn() {
   const [mdValue, setMdValue] = useState<string>(`## Hello World`);
   const [html, setHtml] = useState<string>('');
+  const { t } = useChangeLang();
 
   const onChange = (
     e: MouseEvent<Element, globalThis.MouseEvent> & {
@@ -44,7 +46,10 @@ export default function Markwodn() {
 
   return (
     <div>
-      <CommonBreadcrumb arr={["表格", "Markdown编辑器"]} />
+      <CommonBreadcrumb arr={[
+        t('components.markdown.menu'),
+        t('components.markdown.subMenu')
+      ]} />
       <div className={style['content']}>
         <TextArea rows={4} value={mdValue}
           // @ts-ignore

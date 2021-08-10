@@ -3,8 +3,10 @@ import ReactECharts from 'echarts-for-react';
 import CommonBreadcrumb from 'components/CommonBreadcrumb'
 import option from './option'
 import style from '../index.module.less'
+import { useChangeLang } from 'hooks';
 
 export default function PieChart() {
+  const { t } = useChangeLang();
   const onChartReadyCallback = () => {
 
   }
@@ -15,7 +17,10 @@ export default function PieChart() {
 
   return (
     <div>
-      <CommonBreadcrumb arr={['图表', '基础南丁格尔玫瑰图']}/>
+      <CommonBreadcrumb arr={[
+        t('chart.pieChart.menu'),
+        t('chart.pieChart.subMenu')
+      ]}/>
       <ReactECharts
         option={option}
         notMerge={true}

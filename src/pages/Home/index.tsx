@@ -3,7 +3,8 @@ import { Menu, Layout, Dropdown } from 'antd';
 import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
-  TranslationOutlined
+  TranslationOutlined,
+  DownOutlined
 } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
 import { useStore } from 'stores'
@@ -27,6 +28,7 @@ const Home: FC<IHome> = ({history}: IHome) => {
     roleType: 0
   })
   const [menus, setMenus] = useState<Array<CompItemType> | null>(null)
+  const [selectedIndex, setSelectedIndex] = useState<number>(1)
   const { loginStore } = useStore()
   const { changeLanguage } = useChangeLang();
 
@@ -71,32 +73,47 @@ const Home: FC<IHome> = ({history}: IHome) => {
   );
 
   const login = (
-    <Dropdown overlay={headMenu} trigger={['click']}>
-      <img src={userInfo.avatar} alt=""
-        className={style['avatar']}/>
+    <Dropdown overlay={headMenu} trigger={['click']} arrow>
+      <div className={style['avatar-wrapper']}>
+        <img src={userInfo.avatar} alt=""
+          className={style['avatar']}/>
+        <DownOutlined />
+      </div>
     </Dropdown>
   )
 
-  const translationOptions = () => (
-    <Menu>
-      <Menu.Item key="1">
-        <span onClick={() => {
-          changeLanguage('cn')
-          loginStore.setLng('cn')
-        }}>中文</span>
-      </Menu.Item>
-      <Menu.Item key="2">
-        <span onClick={() => {
-          changeLanguage('en')
-          loginStore.setLng('en')
-        }}>English</span>
-      </Menu.Item>
-    </Menu>
-  )
+  const translationOptions = () => {
+    const options = [
+      {text: '中文', lng: 'cn', key: 1},
+      {text: 'English', lng: 'en', key: 2},
+    ]
+    return (<Menu>
+      {
+        options && options.map(option => (
+          <Menu.Item key={option.key}>
+            <span
+              className={
+                selectedIndex === option.key
+                ? style['is-translationOpt-selected']
+                : ''
+              }
+              onClick={() => {
+                changeLanguage(option.lng)
+                loginStore.setLng(option.lng)
+                setSelectedIndex(option.key)
+            }}>{option.text}</span>
+          </Menu.Item>
+        ))
+      }
+    </Menu>)
+  }
 
   const renderTranslation = () => (
-    <Dropdown overlay={translationOptions} trigger={['click']}>
-      <TranslationOutlined className={style['translate']} />
+    <Dropdown overlay={translationOptions} trigger={['click']} arrow>
+      <div className={style['translate']}>
+        <TranslationOutlined style={{marginRight: 10}}/>
+        <DownOutlined />
+      </div>
     </Dropdown>
   )
 
@@ -133,7 +150,10 @@ const Home: FC<IHome> = ({history}: IHome) => {
   )
 
   useEffect(() => {
-    initUserInfo(getMenus, loginStore.lng);
+    const lng = localStorage.getItem('i18nextLng') || loginStore.lng
+    loginStore.setLng(lng)
+    initUserInfo(getMenus, lng);
+    setSelectedIndex(lng === 'cn' ? 1 : 2)
   }, [loginStore.lng])
 
   return (

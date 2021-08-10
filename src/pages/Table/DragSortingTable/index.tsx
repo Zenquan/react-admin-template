@@ -10,12 +10,18 @@ import CommonBreadcrumb from 'components/CommonBreadcrumb'
 
 interface DragableBodyRowProps {
   index: number,
-  moveRow: Function,
+  moveRow: () => void,
   className: string,
   style: object
 }
 
-const DragableBodyRow: FC<DragableBodyRowProps> = ({ index, moveRow, className, style, ...restProps }) => {
+const DragableBodyRow: FC<DragableBodyRowProps> = ({
+  index,
+  moveRow,
+  className,
+  style,
+  ...restProps
+}: DragableBodyRowProps) => {
   const ref = useRef<HTMLTableRowElement | null>(null);
   const [{ isOver, dropClassName }, drop] = useDrop({
     accept: type,
