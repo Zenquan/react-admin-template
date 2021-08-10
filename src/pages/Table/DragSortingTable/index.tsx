@@ -36,6 +36,7 @@ const DragableBodyRow: FC<DragableBodyRowProps> = ({
       };
     },
     drop: (item: {index: number}) => {
+      // @ts-ignore
       moveRow(item.index, index);
     },
   });

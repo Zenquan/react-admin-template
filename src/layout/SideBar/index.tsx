@@ -68,10 +68,12 @@ const SlideBar: FC<ISlideBar> = ({
   return <Sider trigger={null} collapsible
         collapsed={collapsed}>
       <Menu className={style['menus']}
+          defaultSelectedKeys={['dashboard']}
           openKeys={openKeys}
           selectedKeys={selectedKeys}
           mode="inline"
           theme="dark"
+          // @ts-ignore
           onOpenChange={onOpenChange}
           onClick={onMenuItemClick}
         >
