@@ -1,7 +1,7 @@
 {
-  "name": "react-ts-webpack5-tpl",
+  "name": "react-admin-template",
   "version": "1.0.0",
-  "description": "react + ts的webpack5模板",
+  "description": "react admin 后台管理系统解决方案",
   "main": "index.js",
   "scripts": {
     "start": "NODE_ENV=development webpack serve --mode=development --config ./build/webpack.config.js --hot --host 127.0.0.1 --open",
