@@ -3,6 +3,7 @@ import { Table, Divider, Button, message } from 'antd';
 import CustomBreadcrumb from 'components/CommonBreadcrumb'
 import XLSX from 'xlsx'
 import dayjs from 'dayjs';
+import { useChangeLang } from 'hooks';
 
 const columns = [
   {
@@ -56,6 +57,7 @@ const data: DataType[] = [
 
 const ExcelExport = () => {
   const [xls, setXls] = useState<DataType[]>([])
+  const { t } = useChangeLang();
   // rowSelection object indicates the need for row selection
   const rowSelection = {
     onChange: (selectedRowKeys: React.Key[], selectedRows: DataType[]) => {
@@ -85,7 +87,10 @@ const ExcelExport = () => {
 
   return (
     <div>
-      <CustomBreadcrumb arr={['Excel', '导出excel']}/>
+      <CustomBreadcrumb arr={[
+        t('excel.exportExcel.menu'),
+        t('excel.exportExcel.subMenu')
+      ]}/>
       <Button onClick={exportExcel}>导出excel</Button>
       <Divider />
 

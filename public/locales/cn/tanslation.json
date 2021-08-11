@@ -1,0 +1,44 @@
+{
+  "greet": "欢迎使用react admin template 👏🏼👏🏼👏🏼！",
+  "homeRouteText": "首页",
+  "table": {
+    "dragSortingTable": {
+      "menu": "表格",
+      "subMenu": "拖拽排序表格"
+    },
+    "editableTable": {
+      "menu": "表格",
+      "subMenu": "可编辑行表格"
+    }
+  },
+  "chart": {
+    "lineChart": {
+      "menu": "图表",
+      "subMenu": "折线图"
+    },
+    "pieChart": {
+      "menu": "图表",
+      "subMenu": "饼图"
+    }
+  },
+  "components": {
+    "richText": {
+      "menu": "组件",
+      "subMenu": "富文本编辑器"
+    },
+    "markdown": {
+      "menu": "组件",
+      "subMenu": "Markdown"
+    },
+    "jsonEditor": {
+      "menu": "组件",
+      "subMenu": "JSON编辑器"
+    }
+  },
+  "excel": {
+    "exportExcel": {
+      "menu": "Excel",
+      "subMenu": "导出excel"
+    }
+  }
+}

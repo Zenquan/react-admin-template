@@ -3,6 +3,8 @@ import { Menu, Layout, Dropdown } from 'antd';
 import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
+  TranslationOutlined,
+  DownOutlined
 } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
 import { useStore } from 'stores';
@@ -11,6 +13,7 @@ import classNames from 'classnames';
 import { home } from 'services';
 import AppRouter from 'components/Router';
 import SideBar from 'layout/SideBar';
+import { useChangeLang } from 'hooks';
 
 const { Header, Content, Footer } = Layout;
 interface IHome {
@@ -25,20 +28,24 @@ const Home: FC<IHome> = ({history}: IHome) => {
     roleType: 0
   })
   const [menus, setMenus] = useState<Array<CompItemType> | null>(null)
+  const [selectedIndex, setSelectedIndex] = useState<number>(1)
   const { loginStore } = useStore()
+  const { t, changeLanguage } = useChangeLang();
+
   const toggleCollapsed = () => {
     setCollapsed(!collapsed);
   };
 
-  const initUserInfo = (fn: Function) => {
+  const initUserInfo = (fn: Function, lng: string) => {
     const userInfoStorage = localStorage.getItem('userInfo');
     const userInfo = userInfoStorage ? JSON.parse(userInfoStorage) : loginStore.getUserInfo();
     setUserInfo(userInfo)
-    userInfo.roleType && fn && fn(userInfo.roleType)
+    userInfo.roleType && fn && fn(userInfo.roleType, lng)
   }
 
-  const getMenus = async (roleType: number) => {
-    const data = await home.menus({params: {roleType}});
+
+  const getMenus = async (roleType: number, lng: string) => {
+    const data = await home.menus({params: {roleType, lng}});
     console.log('data>>>', data);
     if (data.ret === '0') {
       const {menus} = data.data
@@ -66,10 +73,48 @@ const Home: FC<IHome> = ({history}: IHome) => {
     </Menu>
   );
 
+  const translationOptions = () => {
+    const options = [
+      {text: '中文', lng: 'cn', key: 1},
+      {text: 'English', lng: 'en', key: 2},
+    ]
+    return (<Menu>
+      {
+        options && options.map(option => (
+          <Menu.Item key={option.key}>
+            <span
+              className={
+                selectedIndex === option.key
+                ? style['is-translationOpt-selected']
+                : ''
+              }
+              onClick={() => {
+                changeLanguage(option.lng)
+                loginStore.setLng(option.lng)
+                setSelectedIndex(option.key)
+            }}>{option.text}</span>
+          </Menu.Item>
+        ))
+      }
+    </Menu>)
+  }
+
+  const renderTranslation = () => (
+    <Dropdown overlay={translationOptions} trigger={['click']} arrow>
+      <div className={style['translate']}>
+        <TranslationOutlined style={{marginRight: 10}}/>
+        <DownOutlined />
+      </div>
+    </Dropdown>
+  )
+
   const login = (
-    <Dropdown overlay={headMenu} trigger={['click']}>
-      <img src={userInfo.avatar} alt=""
-        className={style['avatar']}/>
+    <Dropdown overlay={headMenu} trigger={['click']} arrow>
+      <div className={style['avatar-wrapper']}>
+        <img src={userInfo.avatar} alt=""
+          className={style['avatar']}/>
+        <DownOutlined />
+      </div>
     </Dropdown>
   )
 
@@ -88,6 +133,7 @@ const Home: FC<IHome> = ({history}: IHome) => {
           className: 'trigger',
           onClick: toggleCollapsed,
         })}
+        {renderTranslation()}
         {loginStore.isLogin ? login : notLogin}
       </Header>
       <Content
@@ -105,8 +151,11 @@ const Home: FC<IHome> = ({history}: IHome) => {
   )
 
   useEffect(() => {
-    initUserInfo(getMenus);
-  }, [])
+    const lng = localStorage.getItem('i18nextLng') || loginStore.lng
+    loginStore.setLng(lng)
+    initUserInfo(getMenus, lng);
+    setSelectedIndex(lng === 'cn' ? 1 : 2)
+  }, [loginStore.lng])
 
   return (
     <Layout>

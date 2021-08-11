@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import CustomBreadcrumb from 'components/CommonBreadcrumb'
 import { Table, Input, InputNumber, Popconfirm, Form, Typography } from 'antd';
-
+import { useChangeLang } from 'hooks';
 interface Item {
   key: string;
   name: string;
@@ -65,6 +65,7 @@ const EditableTable = () => {
   const [form] = Form.useForm();
   const [data, setData] = useState(originData);
   const [editingKey, setEditingKey] = useState('');
+  const { t } = useChangeLang();
 
   const isEditing = (record: Item) => record.key === editingKey;
 
@@ -161,7 +162,10 @@ const EditableTable = () => {
 
   return (
     <>
-      <CustomBreadcrumb arr={['表格', '可编辑行表格']}/>
+      <CustomBreadcrumb arr={[
+        t('table.editableTable.menu'),
+        t('table.editableTable.subMenu'),
+      ]}/>
       <Form form={form} component={false}>
         <Table
           components={{

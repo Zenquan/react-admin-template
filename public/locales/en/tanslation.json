@@ -1,0 +1,45 @@
+{
+  "greet": "welcome using react admin template 👏🏼👏🏼👏🏼！",
+  "homeRouteText": "Home",
+  "table": {
+    "dragSortingTable": {
+      "menu": "Table",
+      "subMenu": "DragSortingTable"
+    },
+    "editableTable": {
+      "menu": "Table",
+      "subMenu": "EditableTable"
+    }
+  },
+  "chart": {
+    "lineChart": {
+      "menu": "Chart",
+      "subMenu": "LineChart"
+    },
+    "pieChart": {
+      "menu": "Chart",
+      "subMenu": "PieChart"
+    }
+  },
+  "components": {
+    "richText": {
+      "menu": "Components",
+      "subMenu": "Rich Text Editor"
+    },
+    "markdown": {
+      "menu": "Components",
+      "subMenu": "Markdown"
+    },
+    "jsonEditor": {
+      "menu": "Components",
+      "subMenu": "Json Editor"
+    }
+  },
+  "excel": {
+    "exportExcel": {
+      "menu": "Excel",
+      "subMenu": "Export Excel"
+    }
+  }
+
+}

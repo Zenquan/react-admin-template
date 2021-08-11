@@ -1,0 +1,112 @@
+{
+  "admin": [
+    {
+      "component": "Dashboard",
+      "path": "/dashboard",
+      "key": "dashboard",
+      "icon": "dashboard",
+      "sub": []
+    },
+    {
+        "component": "Table",
+        "path": "/table",
+        "key": "table",
+        "icon": "table",
+        "sub": [
+            {
+                "component": "EditableTable",
+                "path": "/table/editableTable",
+                "key": "table/editableTable"
+            },
+            {
+                "component": "DragSortingTable",
+                "path": "/table/dragSortingTable",
+                "key": "table/dragSortingTable"
+            }
+        ]
+    },
+    {
+        "component": "Chart",
+        "path": "/chart",
+        "key": "chart",
+        "icon": "chart",
+        "sub": [
+            {
+                "component": "LineChart",
+                "path": "/chart/lineChart",
+                "key": "chart/lineChart"
+            },
+            {
+                "component": "PieChart",
+                "path": "/chart/pieChart",
+                "key": "chart/pieChart"
+            }
+        ]
+    },
+    {
+        "component": "Components",
+        "path": "/components",
+        "key": "components",
+        "icon": "components",
+        "sub": [
+            {
+                "component": "RichText",
+                "path": "/components/richText",
+                "key": "components/richText"
+            },
+            {
+                "component": "Markdown",
+                "path": "/components/markdown",
+                "key": "components/markdown"
+            },
+            {
+                "component": "JSON Editor",
+                "path": "/components/jsonEditor",
+                "key": "components/jsonEditor"
+            }
+        ]
+    },
+    {
+        "component": "Excel",
+        "path": "/excel",
+        "key": "excel",
+        "icon": "excel",
+        "sub": [
+            {
+                "component": "Export Excel",
+                "path": "/excel/export",
+                "key": "excel/export"
+            }
+        ]
+    },
+    {
+      "component": "404",
+      "path": "/404",
+      "key": "404",
+      "icon": "404",
+      "sub": []
+    }
+  ],
+  "zenquan": [
+    {
+      "component": "Components",
+      "path": "/components",
+      "key": "components",
+      "icon": "components",
+      "sub": [
+          {
+              "component": "RichText",
+              "path": "/components/richText",
+              "key": "/components/richText"
+          }
+      ]
+    },
+    {
+      "component": "404",
+      "path": "/404",
+      "key": "404",
+      "icon": "404",
+      "sub": []
+    }
+  ]
+}

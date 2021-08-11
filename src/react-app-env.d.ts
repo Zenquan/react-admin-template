@@ -3,6 +3,7 @@ declare module 'pages/*';
 declare module 'utils';
 declare module 'stores';
 declare module 'services';
+declare module 'hooks';
 declare module 'components/*';
 declare module 'layout/*';
 declare module '@types/*';

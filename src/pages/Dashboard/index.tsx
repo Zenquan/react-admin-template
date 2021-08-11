@@ -1,9 +1,12 @@
 import React from 'react';
+import { useChangeLang } from 'hooks';
 
 const Dashboard = () => {
+  const { t } = useChangeLang();
+
   return (
     <div style={{fontSize: 28}}>
-      欢迎使用react admin template 👏🏼👏🏼👏🏼！
+      {t('greet')}
     </div>
   )
 }

@@ -18,11 +18,14 @@
 - mobx
 - echarts
 
-搭建脚手架:【master分支】webpack5
-
-vite: 【vite分支】vite2
+## 分支
+- webpack5:【master分支】
+- webpack5国际化: 【master-i18n分支】
+- vite: 【vite分支】
+- vite国际化: 【vite-i18分支】
 
 ## TODO
 - [ ] 抽离出Layout的Header、Footer组件
-- [ ] 国际化
+- [ ] 保留浏览过的页面的tabs
+- [x] 国际化
 - [ ] 适配移动端

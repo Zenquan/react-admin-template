@@ -17,7 +17,10 @@ const login = async (config: AxiosRequestConfig & {
   }
 
 const menus = async (config: AxiosRequestConfig): Promise<any> => {
-  return getMenus(`${config.params.roleType}`)
+  return getMenus(
+    `${config.params.roleType}`,
+    `${config.params.lng}`
+  )
   // return isProd
   //     ? getMenus(`${config.params.roleType}`)
   //     : API && API.get('/menus', { ...config })

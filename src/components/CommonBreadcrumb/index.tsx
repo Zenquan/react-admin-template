@@ -1,15 +1,19 @@
 import React from 'react'
 import {Breadcrumb} from 'antd'
 import {Link} from 'react-router-dom'
+import { useChangeLang } from 'hooks';
 
 const CommonBreadcrumb = (props: {
   arr: Array<{
     title: string,
     to: string
   } | any>
-})=>(
-  <Breadcrumb style={{marginBottom:16}}>
-    <Breadcrumb.Item><Link to='/'>首页</Link></Breadcrumb.Item>
+})=> {
+  const { t } = useChangeLang();
+  return (<Breadcrumb style={{marginBottom:16}}>
+    <Breadcrumb.Item>
+      <Link to='/dashboard'>{t('homeRouteText')}</Link>
+    </Breadcrumb.Item>
     {props.arr && props.arr.map(item=>{
       if ((typeof item) === 'object'){
         return <Breadcrumb.Item key={item.title}><Link to={item.to}>{item.title}</Link></Breadcrumb.Item>
@@ -18,5 +22,5 @@ const CommonBreadcrumb = (props: {
       }
     })}
   </Breadcrumb>
-)
-export default CommonBreadcrumb
+)}
+export default CommonBreadcrumb;

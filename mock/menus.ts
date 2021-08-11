@@ -1,11 +1,7 @@
-// declare type CompItemType =  {
-//   component: string,
-//   path: string,
-//   key: string,
-//   sub?: CompItemType[]
-// }
+import CN_MENUS from './lang/cn.json';
+import EN_MENUS from './lang/en.json';
 
-const getMenus = (roleType: string) => {
+const getMenus = (roleType: string, lng: string) => {
   let result: {
     ret: string,
     msg: string
@@ -21,130 +17,18 @@ const getMenus = (roleType: string) => {
   }
 
   if (roleType === '1') {
-    result.data.menus = [
-    {
-      component: '表格',
-      path: '/table',
-      key: 'table',
-      icon: 'table',
-      sub: [
-        // {
-        //   component: '基本表格',
-        //   path: '/table/basicTable',
-        //   key: '/table/basicTable'
-        // },
-        {
-          component: '可编辑行表格',
-          path: '/table/editableTable',
-          key: 'table/editableTable'
-        },
-        {
-          component: '拖拽排序表格',
-          path: '/table/dragSortingTable',
-          key: 'table/dragSortingTable'
-        },
-      ]
-    }, {
-      component: '图表',
-      path: '/chart',
-      key: 'chart',
-      icon: 'chart',
-      sub: [{
-          component: '折线图',
-          path: '/chart/lineChart',
-          key: 'chart/lineChart'
-        }, {
-          component: '饼图',
-          path: '/chart/pieChart',
-          key: 'chart/pieChart'
-        }
-      ]
-    }, {
-      component: '组件',
-      path: '/components',
-      key: 'components',
-      icon: 'components',
-      sub: [{
-          component: '富文本编辑器',
-          path: '/components/richText',
-          key: 'components/richText'
-        }, {
-          component: 'Markdown',
-          path: '/components/markdown',
-          key: 'components/markdown'
-        }, {
-          component: 'JSON编辑器',
-          path: '/components/jsonEditor',
-          key: 'components/jsonEditor'
-        },
-      ]
-    }, {
-      component: 'Excel',
-      path: '/excel',
-      key: 'excel',
-      icon: 'excel',
-      sub: [{
-          component: '导出excel',
-          path: '/excel/export',
-          key: 'excel/export'
-        },
-      ]
-    }]
+    if (lng === 'cn') {
+      result.data.menus = CN_MENUS.admin
+    } else {
+      result.data.menus = EN_MENUS.admin
+    }
   } else if (roleType === '2') {
-    result.data.menus = [
-      {
-        component: '表格',
-        path: '/table',
-        key: 'table',
-        icon: 'table',
-        sub: [
-          // {
-          //   component: '基本表格',
-          //   path: '/table/basicTable',
-          //   key: '/table/basicTable'
-          // },
-          {
-            component: '可编辑行表格',
-            path: '/table/editableTable',
-            key: 'table/editableTable'
-          },
-          {
-            component: '拖拽排序表格',
-            path: '/table/dragSortingTable',
-            key: 'table/dragSortingTable'
-          },
-        ]
-      },
-      {
-        component: '组件',
-        path: '/components',
-        key: 'components',
-        icon: 'components',
-        sub: [{
-            component: '富文本编辑器',
-            path: '/components/richText',
-            key: 'components/richText'
-          }
-        ]
-      }
-    ]
+    if (lng === 'cn') {
+      result.data.menus = CN_MENUS.zenquan
+    } else {
+      result.data.menus = EN_MENUS.zenquan
+    }
   }
-
-  result.data.menus.unshift({
-    component: '系统首页',
-    path: '/dashboard',
-    key: 'dashboard',
-    icon: 'dashboard',
-    sub: []
-  })
-
-  result.data.menus.push({
-    component: '404页',
-    path: '/404',
-    key: '404',
-    icon: '404',
-    sub: []
-  })
 
   return result
 }
