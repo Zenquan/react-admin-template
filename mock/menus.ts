@@ -133,7 +133,7 @@ const getMenus = (roleType: string) => {
   result.data.menus.unshift({
     component: '系统首页',
     path: '/dashboard',
-    key: '/dashboard',
+    key: 'dashboard',
     icon: 'dashboard',
     sub: []
   })

@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useState, useEffect } from 'react';
 import { Menu, Layout } from 'antd';
 import {
   TableOutlined,
@@ -24,6 +24,9 @@ const SlideBar: FC<ISlideBar> = ({
   menus,
   collapsed
 }: ISlideBar) => {
+  const [openKeys, setOpenKeys] = useState<string[]>([])
+  const [selectedKeys, setSelectedKeys] = useState<string[]>([])
+
   const renderIcon = (icon: string) => {
     if (icon === 'table') {
       return <TableOutlined />
@@ -44,20 +47,42 @@ const SlideBar: FC<ISlideBar> = ({
     history.push(path)
   }
 
+  const onOpenChange = (item: string[]) => {
+    setOpenKeys(item)
+  }
+
+  const onMenuItemClick = (item: { keyPath: string[], key: string }) => {
+    sessionStorage.setItem('openKeys', JSON.stringify(item.keyPath))
+    sessionStorage.setItem('selectedKeys', JSON.stringify([item.key]))
+    setSelectedKeys([item.key])
+    setOpenKeys(item.keyPath)
+  }
+
+  useEffect(() => {
+    const openKeys = sessionStorage.getItem('openKeys'),
+    selectedKeys = sessionStorage.getItem('selectedKeys')
+    setOpenKeys(openKeys ? JSON.parse(openKeys) : [])
+    setSelectedKeys(selectedKeys ? JSON.parse(selectedKeys) : [])
+  }, [])
+
   return <Sider trigger={null} collapsible
         collapsed={collapsed}>
       <Menu className={style['menus']}
-          defaultSelectedKeys={['/dashboard']}
-          // defaultOpenKeys={['sub1']}
+          defaultSelectedKeys={['dashboard']}
+          openKeys={openKeys}
+          selectedKeys={selectedKeys}
           mode="inline"
           theme="dark"
+          // @ts-ignore
+          onOpenChange={onOpenChange}
+          onClick={onMenuItemClick}
         >
           {
             menus && menus.map((menu: CompItemType) => {
-              const {component, path, sub, icon} = menu
+              const {component, key, path, sub, icon} = menu
               return (
                 sub && sub.length
-                  ? <SubMenu key={path} icon={icon && renderIcon(icon)} title={component}>
+                  ? <SubMenu key={key} icon={icon && renderIcon(icon)} title={component}>
                     {
                       sub && sub.map(((s: CompItemType) => {
                         const {component, path, key} = s
@@ -68,7 +93,7 @@ const SlideBar: FC<ISlideBar> = ({
                       }))
                     }
                   </SubMenu>
-                  : <Menu.Item key={path}
+                  : <Menu.Item key={key}
                       icon={icon && renderIcon(icon)}
                       onClick={e => selectMenuItem(path)}>
                     {component}
