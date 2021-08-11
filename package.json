@@ -1,6 +1,7 @@
 {
-  "name": "app",
-  "version": "0.0.0",
+  "name": "react-admin-template",
+  "version": "1.0.0",
+  "description": "react admin 后台管理系统解决方案",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
