@@ -52,15 +52,15 @@ const SlideBar: FC<ISlideBar> = ({
   }
 
   const onMenuItemClick = (item: { keyPath: string[], key: string }) => {
-    localStorage.setItem('openKeys', JSON.stringify(item.keyPath))
-    localStorage.setItem('selectedKeys', JSON.stringify([item.key]))
+    sessionStorage.setItem('openKeys', JSON.stringify(item.keyPath))
+    sessionStorage.setItem('selectedKeys', JSON.stringify([item.key]))
     setSelectedKeys([item.key])
     setOpenKeys(item.keyPath)
   }
 
   useEffect(() => {
-    const openKeys = localStorage.getItem('openKeys'),
-    selectedKeys = localStorage.getItem('selectedKeys')
+    const openKeys = sessionStorage.getItem('openKeys'),
+    selectedKeys = sessionStorage.getItem('selectedKeys')
     setOpenKeys(openKeys ? JSON.parse(openKeys) : [])
     setSelectedKeys(selectedKeys ? JSON.parse(selectedKeys) : [])
   }, [])
@@ -69,6 +69,7 @@ const SlideBar: FC<ISlideBar> = ({
         collapsed={collapsed}>
       <Menu className={style['menus']}
           defaultSelectedKeys={['dashboard']}
+          defaultOpenKeys={['dashboard']}
           openKeys={openKeys}
           selectedKeys={selectedKeys}
           mode="inline"
