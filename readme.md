@@ -9,21 +9,15 @@
 - 运营 zenquan zenquan
 
 ## 技术栈
-- react^17
-- react-router-dom^4
-- less
-- css modules
-- antd^4
-- axios
-- mobx
-- echarts
-
+react^17 + react-router-dom^4 + less + css modules + antd^4 + axios + mobx + echarts + react-i18next
 ## 功能、组件的封装
 - [ ] xxx
 
-搭建脚手架:【master分支】webpack5
-
-vite: 【vite分支】vite2
+## 分支
+- webpack5:【master分支】
+- webpack5国际化: 【master-i18n分支】
+- vite: 【vite分支】
+- vite国际化: 【vite-i18分支】
 
 ## TODO
 - [ ] 抽离出Layout的Header、Footer组件
