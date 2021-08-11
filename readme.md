@@ -1,6 +1,6 @@
 # react-admin-template
 
-> react + antd的管理后台系统方案
+> react + antd + vite2/webpack5 的管理后台系统方案
 
 ## 预览
 [预览地址](https://react-admin-template.vercel.app/#/login)
@@ -17,6 +17,9 @@
 - axios
 - mobx
 - echarts
+
+## 功能、组件的封装
+- [ ] xxx
 
 搭建脚手架:【master分支】webpack5
 
