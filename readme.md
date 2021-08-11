@@ -24,5 +24,4 @@ vite: 【vite分支】vite2
 
 ## TODO
 - [ ] 抽离出Layout的Header、Footer组件
-- [ ] 国际化
 - [ ] 适配移动端
