@@ -15,9 +15,9 @@ react^17 + react-router-dom^4 + less + css modules
 ## 开始
 ```bash
 # git clone
-git clone https://github.com/buqiyuan/vite-vue3-admin.git
+git clone https://github.com/zenquan/react-admin-template.git
 or
-git clone -b <branch> https://github.com/buqiyuan/vite-vue3-admin.git
+git clone -b <branch> https://github.com/zenquan/react-admin-template.git
 
 # install
 npm install
