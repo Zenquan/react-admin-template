@@ -10,7 +10,7 @@ const login = async (config: AxiosRequestConfig & {
   passWord: string,
   remember: boolean
 }): Promise<any> => {
-  return getUsers(config.userName, config.passWord, config.remember)
+  return getUsers(config.userName.trim(), config.passWord.trim(), config.remember)
   // return isProd
   //     ? getUsers(config.userName, config.passWord, config.remember)
   //     : API && API.post('/login', { ...config })
