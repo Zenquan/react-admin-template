@@ -9,8 +9,7 @@
 - 运营 zenquan zenquan
 
 ## 技术栈
-react^17 + react-router-dom^4 + less + css modules
-  + antd^4 + axios + mobx + echarts + react-i18next
+react^17 + react-router-dom^4 + less + css modules + antd^4 + axios + mobx + echarts + react-i18next
 
 ## 开始
 ```bash
