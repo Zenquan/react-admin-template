@@ -40,5 +40,8 @@
       "menu": "Excel",
       "subMenu": "导出excel"
     }
+  },
+  "lng": {
+    "changeLangSuccess": "已切换语言"
   }
 }

@@ -16,7 +16,7 @@ const App: FC = () => {
       <StoreContext.Provider value={store}>
         <HashRouter>
           <Suspense fallback={
-            <Space size="large" className="loading all-center">
+            <Space size="large" className="loading flex-all-center">
               <Spin indicator={antIcon}
                 size="large"
                 tip="加载中"/>

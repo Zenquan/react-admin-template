@@ -19,7 +19,7 @@ export default function RichText() {
         t('components.richText.subMenu')
       ]}/>
       <Suspense fallback={
-        <Space size="large" className="loading all-center">
+        <Space size="large" className="loading flex-all-center ">
           <Spin indicator={antIcon}
             size="large"
             tip="加载中"/>

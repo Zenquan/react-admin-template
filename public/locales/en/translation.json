@@ -40,5 +40,8 @@
       "menu": "Excel",
       "subMenu": "Export Excel"
     }
+  },
+  "lng": {
+    "changeLangSuccess": "Switch Language Success"
   }
 }

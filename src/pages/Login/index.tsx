@@ -46,41 +46,45 @@ const Login: FC<ILogin> = ({history}: ILogin) => {
   };
 
   return (
-    <div className={classNames(style['login'], 'all-center')}>
-      <Form
-        {...layout}
-        name="basic"
-        initialValues={{ remember: true }}
-        onFinish={onFinish}
-        onFinishFailed={onFinishFailed}
-      >
-        <Form.Item
-          label="用户名"
-          name="userName"
-          rules={[{ required: true, message: "请输入用户名!" }]}
+    <div className={classNames(style['login'], 'flex-all-center')}>
+      <div className={classNames(style['login__form'], 'flex-all-center')}>
+        <span className={style['login__form__title']}>React Admin</span>
+        <Form
+          {...layout}
+          name="basic"
+          initialValues={{ remember: true }}
+          onFinish={onFinish}
+          onFinishFailed={onFinishFailed}
+          className={style['login__form__form']}
         >
-          <Input />
-        </Form.Item>
+          <Form.Item
+            label="用户名"
+            name="userName"
+            labelAlign="left"
+            rules={[{ required: true, message: "请输入用户名!" }]}
+          >
+            <Input />
+          </Form.Item>
 
-        <Form.Item
-          label="密码"
-          name="passWord"
-          rules={[{ required: true, message: "请输入密码!" }]}
-        >
-          <Input.Password />
-        </Form.Item>
+          <Form.Item
+            label="密码"
+            name="passWord"
+            labelAlign="left"
+            rules={[{ required: true, message: "请输入密码!" }]}
+          >
+            <Input.Password />
+          </Form.Item>
 
-        <Form.Item {...tailLayout} name="remember"
-          valuePropName="checked">
-          <Checkbox>记住我</Checkbox>
-        </Form.Item>
-
-        <Form.Item {...tailLayout}>
-          <Button type="primary" htmlType="submit">
+          <Form.Item {...tailLayout} name="remember"
+            valuePropName="checked">
+            <Checkbox>记住我</Checkbox>
+          </Form.Item>
+          <Button type="primary" htmlType="submit"
+            className={style["login__form__form__submit"]}>
             提交
           </Button>
-        </Form.Item>
-      </Form>
+        </Form>
+        </div>
     </div>
   );
 }

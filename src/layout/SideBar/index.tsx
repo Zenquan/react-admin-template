@@ -25,7 +25,7 @@ const SlideBar: FC<ISlideBar> = ({
   collapsed
 }: ISlideBar) => {
   const [openKeys, setOpenKeys] = useState<string[]>([])
-  const [selectedKeys, setSelectedKeys] = useState<string[]>([])
+  const [selectedKeys, setSelectedKeys] = useState<string[]>(['dashboard'])
 
   const renderIcon = (icon: string) => {
     if (icon === 'table') {
@@ -62,14 +62,12 @@ const SlideBar: FC<ISlideBar> = ({
     const openKeys = sessionStorage.getItem('openKeys'),
     selectedKeys = sessionStorage.getItem('selectedKeys')
     setOpenKeys(openKeys ? JSON.parse(openKeys) : [])
-    setSelectedKeys(selectedKeys ? JSON.parse(selectedKeys) : [])
+    setSelectedKeys(selectedKeys ? JSON.parse(selectedKeys) : ['dashboard'])
   }, [])
 
   return <Sider trigger={null} collapsible
         collapsed={collapsed}>
       <Menu className={style['menus']}
-          defaultSelectedKeys={['dashboard']}
-          defaultOpenKeys={['dashboard']}
           openKeys={openKeys}
           selectedKeys={selectedKeys}
           mode="inline"
