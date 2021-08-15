@@ -25,6 +25,8 @@ npm install
 master or master-i18n -> npm run start
 vite or vite-i18n -> npm run dev
 
+# build
+npm run build
 ```
 ## 功能、组件的封装
 - [x] 系统首页
@@ -47,8 +49,7 @@ vite or vite-i18n -> npm run dev
 - webpack5:【master分支】
 - webpack5国际化: 【master-i18n分支】
 - vite: 【vite分支】
-- vite国际化: 【vite-i18分支】
+- vite国际化: 【vite-i18n分支】
 
 ## TODO
-- [ ] 抽离出Layout的Header、Footer组件
 - [ ] 适配移动端

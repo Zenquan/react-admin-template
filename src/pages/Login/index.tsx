@@ -63,7 +63,7 @@ const Login: FC<ILogin> = ({history}: ILogin) => {
             labelAlign="left"
             rules={[{ required: true, message: "请输入用户名!" }]}
           >
-            <Input />
+            <Input placeholder="管理admin,运营zenquan"/>
           </Form.Item>
 
           <Form.Item
@@ -72,7 +72,7 @@ const Login: FC<ILogin> = ({history}: ILogin) => {
             labelAlign="left"
             rules={[{ required: true, message: "请输入密码!" }]}
           >
-            <Input.Password />
+            <Input.Password placeholder="管理admin,运营zenquan"/>
           </Form.Item>
 
           <Form.Item {...tailLayout} name="remember"

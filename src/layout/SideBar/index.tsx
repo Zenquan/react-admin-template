@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect } from 'react';
+import React, { FC, useState, useEffect, memo } from 'react';
 import { Menu, Layout } from 'antd';
 import {
   TableOutlined,
@@ -104,4 +104,4 @@ const SlideBar: FC<ISlideBar> = ({
     </Sider>
 }
 
-export default SlideBar;
+export default memo(SlideBar);

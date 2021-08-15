@@ -13,9 +13,10 @@ import classNames from 'classnames';
 import { home } from 'services';
 import AppRouter from 'components/Router';
 import SideBar from 'layout/SideBar'
+import Footer from 'layout/Footer'
 import { useChangeLang } from 'hooks';
 
-const { Header, Content, Footer } = Layout;
+const { Header, Content } = Layout;
 interface IHome {
   history: any
 }
@@ -145,7 +146,7 @@ const Home: FC<IHome> = ({history}: IHome) => {
       >
         <AppRouter/>
       </Content>
-      <Footer style={{textAlign: 'center'}}>react-admin-template ©2021 Created by Jomsou@qq.com <a target='_blank' href='https://github.com/zenquan/react-admin-template' rel="noreferrer">github地址</a></Footer>
+      <Footer />
     </>
   )
 
