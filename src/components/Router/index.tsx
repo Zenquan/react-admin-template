@@ -112,7 +112,7 @@ class AppRouter extends Component<RouteComponentProps> {
       <HashRouter>
         <Suspense
           fallback={
-            <Space size="large" className="loading flex-all-center ">
+            <Space size="large" className="loading flex-all-center">
               <Spin indicator={antIcon} size="large" tip="加载中" />
             </Space>
           }
