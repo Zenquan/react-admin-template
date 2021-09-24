@@ -1,10 +1,16 @@
 <div align="center">
-  <img src="./public/logo.png" style="width: 128px; height: 128px;">
-  <h1>react-admin-template</h1>
-  <h3>react + antd + vite2/webpack5 的管理后台系统方案</h3>
+  <img src="./public/logo.png" style="width: 128px; height: 128px;">  
 </div>
 <br>
 <br>
+
+<h1>react-admin-template</h1>
+<h3>react + antd + vite2/webpack5 的管理后台系统方案</h3>
+
+![](https://img.shields.io/badge/version-1.0.0-orange)
+![](https://img.shields.io/github/stars/Zenquan/react-admin-template)
+![](https://img.shields.io/github/forks/Zenquan/react-admin-template)
+![](https://img.shields.io/github/issues/Zenquan/react-admin-template)
 
 ## 预览
 [预览地址](https://react-admin-template.vercel.app/#/login)
