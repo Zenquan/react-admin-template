@@ -59,6 +59,7 @@
     "webpackbar": "^5.0.0-3"
   },
   "dependencies": {
+    "@ant-design/icons": "^4.7.0",
     "@tinymce/tinymce-react": "^3.12.6",
     "antd": "^4.16.3",
     "axios": "^0.21.1",
