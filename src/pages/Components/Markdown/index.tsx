@@ -1,11 +1,11 @@
-import React, { useRef, useEffect, useState, MouseEvent } from "react";
-import CommonBreadcrumb from "components/CommonBreadcrumb";
-import { Input } from "antd";
-import MarkdownIt from "markdown-it";
+import React, { useRef, useEffect, useState, MouseEvent } from 'react';
+import CommonBreadcrumb from '/@/components/CommonBreadcrumb';
+import { Input } from 'antd';
+import MarkdownIt from 'markdown-it';
 import hljs from 'highlight.js';
-import { useChangeLang } from 'hooks';
+import { useChangeLang } from '/@/hooks';
 import style from './index.module.less';
-import 'highlight.js/styles/atom-one-dark.css'
+import 'highlight.js/styles/atom-one-dark.css';
 
 const { TextArea } = Input;
 const md = new MarkdownIt({
@@ -15,14 +15,18 @@ const md = new MarkdownIt({
   highlight: function (str: string, lang: string) {
     if (lang && hljs.getLanguage(lang)) {
       try {
-        return '<pre class="hljs" style="width: 30vw;"><code>' +
-              hljs.highlight(str, { language: lang, ignoreIllegals: true }).value +
-              '</code></pre>';
+        return (
+          '<pre class="hljs" style="width: 30vw;"><code>' +
+          hljs.highlight(str, { language: lang, ignoreIllegals: true }).value +
+          '</code></pre>'
+        );
       } catch (__) {}
     }
 
-    return '<pre class="hljs" style="width: 30vw;"><code>' + md.utils.escapeHtml(str) + '</code></pre>';
-  }
+    return (
+      '<pre class="hljs" style="width: 30vw;"><code>' + md.utils.escapeHtml(str) + '</code></pre>'
+    );
+  },
 });
 
 export default function Markwodn() {
@@ -33,9 +37,9 @@ export default function Markwodn() {
   const onChange = (
     e: MouseEvent<Element, globalThis.MouseEvent> & {
       target: { value: string };
-    }
+    },
   ) => {
-    console.log("Change:", e.target.value);
+    console.log('Change:', e.target.value);
     const value = e.target.value;
     setMdValue(value);
   };
@@ -46,14 +50,15 @@ export default function Markwodn() {
 
   return (
     <div>
-      <CommonBreadcrumb arr={[
-        t('components.markdown.menu'),
-        t('components.markdown.subMenu')
-      ]} />
+      <CommonBreadcrumb arr={[t('components.markdown.menu'), t('components.markdown.subMenu')]} />
       <div className={style['content']}>
-        <TextArea rows={4} value={mdValue}
+        <TextArea
+          rows={4}
+          value={mdValue}
           // @ts-ignore
-          onChange={onChange} className={style['text-area']} />
+          onChange={onChange}
+          className={style['text-area']}
+        />
         <div dangerouslySetInnerHTML={{ __html: html }}></div>
       </div>
     </div>

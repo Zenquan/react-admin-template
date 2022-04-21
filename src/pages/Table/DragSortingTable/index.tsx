@@ -3,16 +3,16 @@ import { Table } from 'antd';
 import { DndProvider, useDrag, useDrop } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import update from 'immutability-helper';
-import { useChangeLang } from 'hooks';
+import { useChangeLang } from '/@/hooks';
+import CommonBreadcrumb from '/@/components/CommonBreadcrumb';
 
 const type = 'DragableBodyRow';
-import CommonBreadcrumb from 'components/CommonBreadcrumb'
 
 interface DragableBodyRowProps {
-  index: number,
-  moveRow: () => void,
-  className: string,
-  style: object
+  index: number;
+  moveRow: () => void;
+  className: string;
+  style: object;
 }
 
 const DragableBodyRow: FC<DragableBodyRowProps> = ({
@@ -25,7 +25,7 @@ const DragableBodyRow: FC<DragableBodyRowProps> = ({
   const ref = useRef<HTMLTableRowElement | null>(null);
   const [{ isOver, dropClassName }, drop] = useDrop({
     accept: type,
-    collect: monitor => {
+    collect: (monitor) => {
       const { index: dragIndex }: { index: number } = monitor.getItem() || {};
       if (dragIndex === index) {
         return {};
@@ -35,7 +35,7 @@ const DragableBodyRow: FC<DragableBodyRowProps> = ({
         dropClassName: dragIndex < index ? ' drop-over-downward' : ' drop-over-upward',
       };
     },
-    drop: (item: {index: number}) => {
+    drop: (item: { index: number }) => {
       // @ts-ignore
       moveRow(item.index, index);
     },
@@ -43,7 +43,7 @@ const DragableBodyRow: FC<DragableBodyRowProps> = ({
   const [, drag] = useDrag({
     type,
     item: { index },
-    collect: monitor => ({
+    collect: (monitor) => ({
       isDragging: monitor.isDragging(),
     }),
   });
@@ -124,10 +124,9 @@ const DragSortingTable: React.FC = () => {
 
   return (
     <>
-      <CommonBreadcrumb arr={[
-          t('table.dragSortingTable.menu'),
-          t('table.dragSortingTable.subMenu')
-        ]}/>
+      <CommonBreadcrumb
+        arr={[t('table.dragSortingTable.menu'), t('table.dragSortingTable.subMenu')]}
+      />
       <DndProvider backend={HTML5Backend}>
         <Table
           columns={columns}

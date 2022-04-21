@@ -1,45 +1,36 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
-    "lib": ["DOM", "DOM.Iterable", "ESNext"],
-    "allowJs": false,
-    "skipLibCheck": false,
-    "esModuleInterop": false,
-    "allowSyntheticDefaultImports": true,
+    "target": "esnext",
+    "module": "esnext",
     "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "module": "ESNext",
-    "moduleResolution": "Node",
+    "jsx": "react",
+    "allowJs": true,
+    "importHelpers": true,
+    "moduleResolution": "node",
+    "skipLibCheck": true,
+    "experimentalDecorators": true,
     "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react"
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "useDefineForClassFields": true,
+    "sourceMap": true,
+    "baseUrl": ".",
+    "types": [],
+    "paths": {
+      "/@/*": ["src/*"],
+      "@/*": ["src/*"],
+      "/#/*": ["src/@types/*"]
+    },
+    "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
   },
-  "include": ["./src"],
-  "paths": {
-    "@/*": [
-      "src/*"
-    ],
-    "pages/*": [
-      "src/pages/*"
-    ],
-    "utils/*": [
-      "src/utils/*"
-    ],
-    "services/*": [
-      "src/services/*"
-    ],
-    "stores/*": [
-      "src/stores/*"
-    ],
-    "components": [
-      "src/components/*"
-    ],
-    "layout": [
-      "src/layout/*"
-    ],
-    "hooks": [
-      "src/hooks/*"
-    ]
-  }
+  "include": [
+    "src/**/*.js",
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "tests/**/*.ts",
+    "tests/**/*.tsx"
+  ],
+  "exclude": ["node_modules"]
 }

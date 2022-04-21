@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
-import CustomBreadcrumb from 'components/CommonBreadcrumb'
+import React, { useState } from 'react';
+import CustomBreadcrumb from '/@/components/CommonBreadcrumb';
 import { Table, Input, InputNumber, Popconfirm, Form, Typography } from 'antd';
-import { useChangeLang } from 'hooks';
+import { useChangeLang } from '/@/hooks';
+
 interface Item {
   key: string;
   name: string;
@@ -83,7 +84,7 @@ const EditableTable = () => {
       const row = (await form.validateFields()) as Item;
 
       const newData = [...data];
-      const index = newData.findIndex(item => key === item.key);
+      const index = newData.findIndex((item) => key === item.key);
       if (index > -1) {
         const item = newData[index];
         newData.splice(index, 1, {
@@ -144,7 +145,7 @@ const EditableTable = () => {
     },
   ];
 
-  const mergedColumns = columns.map(col => {
+  const mergedColumns = columns.map((col) => {
     if (!col.editable) {
       return col;
     }
@@ -162,10 +163,7 @@ const EditableTable = () => {
 
   return (
     <>
-      <CustomBreadcrumb arr={[
-        t('table.editableTable.menu'),
-        t('table.editableTable.subMenu'),
-      ]}/>
+      <CustomBreadcrumb arr={[t('table.editableTable.menu'), t('table.editableTable.subMenu')]} />
       <Form form={form} component={false}>
         <Table
           components={{
@@ -185,6 +183,5 @@ const EditableTable = () => {
     </>
   );
 };
-
 
 export default EditableTable;

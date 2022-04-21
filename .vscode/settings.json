@@ -1,5 +1,3 @@
 {
-  "i18n-ally.localesPaths": [
-    "public/locales"
-  ]
+  "i18n-ally.localesPaths": ["mock/lang", "public/locales"]
 }

@@ -1,7 +1,7 @@
-import React, { memo } from "react";
-import { Route, Redirect, RouteComponentProps } from "react-router-dom";
-import { StaticContext } from "react-router";
-import { isAuthenticated } from "utils";
+import React, { memo } from 'react';
+import { Route, Redirect, RouteComponentProps } from 'react-router-dom';
+import { StaticContext } from 'react-router';
+import { isAuthenticated } from '/@/utils';
 
 const CommonRoute = ({
   component: MyComponent,
@@ -20,8 +20,8 @@ const CommonRoute = ({
       ) : (
         <Redirect
           to={{
-            pathname: "/login",
-            state: {from: props.location}
+            pathname: '/login',
+            state: { from: props.location },
           }}
         />
       )

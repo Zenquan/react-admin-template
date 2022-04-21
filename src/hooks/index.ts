@@ -1,5 +1,1 @@
-import useChangeLang from './useChangeLang';
-
-export {
-  useChangeLang
-}
+export * from './useChangeLang';

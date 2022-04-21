@@ -1,8 +1,8 @@
-import React, { memo, FC } from "react";
-import { Form, Input, Button, Checkbox, message } from "antd";
-import classNames from "classnames";
-import { home } from "services";
-import { useStore } from 'stores'
+import React, { memo, FC } from 'react';
+import { Form, Input, Button, Checkbox, message } from 'antd';
+import classNames from 'classnames';
+import { home } from '/@/services';
+import { useStore } from '/@/stores';
 import style from './index.module.less';
 
 const layout = {
@@ -15,34 +15,29 @@ const tailLayout = {
 };
 
 interface ILogin {
-  history: any
+  history: any;
 }
 
-const Login: FC<ILogin> = ({history}: ILogin) => {
-
-  const { loginStore } = useStore()
-  const onFinish = async (values: {
-    userName: string,
-    passWord: string,
-    remember: boolean
-  }) => {
-    const data = await home.login(values)
+const Login: FC<ILogin> = ({ history }: ILogin) => {
+  const { loginStore } = useStore();
+  const onFinish = async (values: { userName: string; passWord: string; remember: boolean }) => {
+    const data = await home.login(values);
     if (data.ret === '0') {
-      const { roleType, userName, avatar } = data.data
+      const { roleType, userName, avatar } = data.data;
       await loginStore.setUserInfo({
         roleType,
         userName,
-        avatar
+        avatar,
       });
-      await loginStore.toggleLogin(true, {userName})
+      await loginStore.toggleLogin(true, { userName });
       await history.push('/dashboard');
     } else {
-      message.error(`${data.msg}, 用户名和密码不符`)
+      message.error(`${data.msg}, 用户名和密码不符`);
     }
   };
 
   const onFinishFailed = (errorInfo: unknown) => {
-    console.log("Failed:", errorInfo);
+    console.log('Failed:', errorInfo);
   };
 
   return (
@@ -61,32 +56,30 @@ const Login: FC<ILogin> = ({history}: ILogin) => {
             label="用户名"
             name="userName"
             labelAlign="left"
-            rules={[{ required: true, message: "请输入用户名!" }]}
+            rules={[{ required: true, message: '请输入用户名!' }]}
           >
-            <Input placeholder="管理admin,运营zenquan"/>
+            <Input placeholder="管理admin,运营zenquan" />
           </Form.Item>
 
           <Form.Item
             label="密码"
             name="passWord"
             labelAlign="left"
-            rules={[{ required: true, message: "请输入密码!" }]}
+            rules={[{ required: true, message: '请输入密码!' }]}
           >
-            <Input.Password placeholder="管理admin,运营zenquan"/>
+            <Input.Password placeholder="管理admin,运营zenquan" />
           </Form.Item>
 
-          <Form.Item {...tailLayout} name="remember"
-            valuePropName="checked">
+          <Form.Item {...tailLayout} name="remember" valuePropName="checked">
             <Checkbox>记住我</Checkbox>
           </Form.Item>
-          <Button type="primary" htmlType="submit"
-            className={style["login__form__form__submit"]}>
+          <Button type="primary" htmlType="submit" className={style['login__form__form__submit']}>
             提交
           </Button>
         </Form>
-        </div>
+      </div>
     </div>
   );
-}
+};
 
 export default memo(Login);
