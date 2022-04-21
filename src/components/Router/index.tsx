@@ -76,6 +76,7 @@ class AppRouter extends Component<RouteComponentProps> {
                 }) => {
                   const key = random(100, 999),
                     { component, path } = route;
+                  // @ts-ignore
                   return <CommonRoute path={path} key={key} exact component={component} />;
                 },
               )}

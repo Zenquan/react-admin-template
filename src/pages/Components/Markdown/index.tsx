@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState, MouseEvent } from 'react';
+import React, { useEffect, useState, MouseEvent, SetStateAction } from 'react';
 import CommonBreadcrumb from '/@/components/CommonBreadcrumb';
 import { Input } from 'antd';
 import MarkdownIt from 'markdown-it';
@@ -8,7 +8,13 @@ import style from './index.module.less';
 import 'highlight.js/styles/atom-one-dark.css';
 
 const { TextArea } = Input;
-const md = new MarkdownIt({
+
+const md: {
+  render: (val: string) => SetStateAction<string>;
+  utils: {
+    escapeHtml: (val: string) => string;
+  };
+} = new MarkdownIt({
   html: true,
   linkify: true,
   typographer: true,
