@@ -95,7 +95,7 @@ const Home: FC<IHome> = ({ history }: IHome) => {
 
   const translationOptions = () => {
     const options = [
-      { text: '中文', lng: 'cn', key: 1 },
+      { text: '中文', lng: 'zh-CN', key: 1 },
       { text: 'English', lng: 'en', key: 2 },
     ];
     return (
@@ -156,7 +156,7 @@ const Home: FC<IHome> = ({ history }: IHome) => {
     const lng = localStorage.getItem('i18nextLng') || loginStore.lng;
     loginStore.setLng(lng);
     initUserInfo(getMenus, lng);
-    setSelectedIndex(lng === 'cn' ? 1 : 2);
+    setSelectedIndex(lng === 'zh-CN' ? 1 : 2);
   }, [loginStore.lng]);
 
   return (

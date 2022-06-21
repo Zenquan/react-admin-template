@@ -9,7 +9,7 @@ export class LoginStore {
     avatar: '',
   };
 
-  lng = 'cn';
+  lng = 'zh-CN';
 
   setUserInfo(userInfo: UserInfoType) {
     this.userInfo = userInfo;
