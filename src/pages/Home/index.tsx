@@ -11,7 +11,7 @@ import { useStore } from '/@/stores';
 import style from './index.module.less';
 import classNames from 'classnames';
 import { home } from '/@/services';
-import AppRouter from '/@/components/Router';
+import AppRouter from '/@/router';
 import SideBar from '/@/layout/SideBar';
 import Footer from '/@/layout/Footer';
 import { useChangeLang } from '/@/hooks';

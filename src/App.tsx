@@ -1,5 +1,5 @@
 import React, { FC, Suspense } from 'react';
-import { Route, Switch, HashRouter } from 'react-router-dom';
+import { Route, Switch, HashRouter as Router } from 'react-router-dom';
 import { Spin, Space } from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';
 import './App.css';
@@ -14,7 +14,7 @@ const App: FC = () => {
   return (
     <Provider {...store} className="App">
       <StoreContext.Provider value={store}>
-        <HashRouter>
+        <Router>
           <Suspense
             fallback={
               <Space size="large" className="loading flex-all-center">
@@ -27,7 +27,7 @@ const App: FC = () => {
               <Route path="/" component={Home} />
             </Switch>
           </Suspense>
-        </HashRouter>
+        </Router>
       </StoreContext.Provider>
     </Provider>
   );

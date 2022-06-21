@@ -1,5 +1,5 @@
-import React, { lazy, Component, Suspense } from 'react';
-import { withRouter, HashRouter, Switch, RouteComponentProps } from 'react-router-dom';
+import React, { lazy, Suspense } from 'react';
+import { withRouter, Switch, RouteComponentProps } from 'react-router-dom';
 import { StaticContext } from 'react-router';
 import { Spin, Space } from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';
@@ -54,37 +54,31 @@ const routes: Array<{
 ];
 
 const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
-class AppRouter extends Component<RouteComponentProps> {
-  render() {
-    return (
-      <HashRouter>
-        <Suspense
-          fallback={
-            <Space size="large" className="loading flex-all-center">
-              <Spin indicator={antIcon} size="large" tip="加载中" />
-            </Space>
-          }
-        >
-          <Switch>
-            {routes &&
-              routes.map(
-                (route: {
-                  component:
-                    | React.ComponentType<any>
-                    | React.ComponentType<RouteComponentProps<any, StaticContext, unknown>>;
-                  path?: string;
-                }) => {
-                  const key = random(100, 999),
-                    { component, path } = route;
-                  // @ts-ignore
-                  return <CommonRoute path={path} key={key} exact component={component} />;
-                },
-              )}
-          </Switch>
-        </Suspense>
-      </HashRouter>
-    );
-  }
-}
+const AppRouter = () => (
+  <Suspense
+    fallback={
+      <Space size="large" className="loading flex-all-center">
+        <Spin indicator={antIcon} size="large" tip="加载中" />
+      </Space>
+    }
+  >
+    <Switch>
+      {routes &&
+        routes.map(
+          (route: {
+            component:
+              | React.ComponentType<any>
+              | React.ComponentType<RouteComponentProps<any, StaticContext, unknown>>;
+            path?: string;
+          }) => {
+            const key = random(100, 999),
+              { component, path } = route;
+            // @ts-ignore
+            return <CommonRoute path={path} key={key} exact component={component} />;
+          },
+        )}
+    </Switch>
+  </Suspense>
+);
 
 export default withRouter(AppRouter);
