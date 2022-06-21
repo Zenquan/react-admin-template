@@ -57,6 +57,8 @@ specifiers:
   vite-plugin-imagemin: ^0.6.1
   vite-plugin-imp: ^2.1.7
   vite-plugin-pwa: ^0.11.2
+  vite-plugin-windicss: ^1.8.4
+  windicss: ^3.5.4
   xlsx: ^0.17.0
 
 dependencies:
@@ -119,6 +121,8 @@ devDependencies:
   vite-plugin-imagemin: 0.6.1_vite@2.9.5
   vite-plugin-imp: 2.1.7_vite@2.9.5
   vite-plugin-pwa: 0.11.13_vite@2.9.5
+  vite-plugin-windicss: 1.8.4_vite@2.9.5
+  windicss: 3.5.4
 
 packages:
 
@@ -167,6 +171,10 @@ packages:
       react: 17.0.2
       resize-observer-polyfill: 1.5.1
     dev: false
+
+  /@antfu/utils/0.5.2:
+    resolution: {integrity: sha512-CQkeV+oJxUazwjlHD0/3ZD08QWKuGQkhnrKo3e6ly5pd48VUpXbb77q0xMU4+vc2CkJnDS02Eq/M9ugyX20XZA==}
+    dev: true
 
   /@apideck/better-ajv-errors/0.3.3_ajv@8.11.0:
     resolution: {integrity: sha512-9o+HO2MbJhJHjDYZaDxJmSDckvDpiuItEsrIShV0DXeCshXWRHhqYyU/PKHMkuClOmFnZhRd6wzv4vpDu/dRKg==}
@@ -1777,6 +1785,30 @@ packages:
       '@babel/plugin-transform-react-jsx-source': 7.16.7_@babel+core@7.17.9
       '@rollup/pluginutils': 4.2.1
       react-refresh: 0.10.0
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
+  /@windicss/config/1.8.4:
+    resolution: {integrity: sha512-i4fFGFfZoRess6WMkauykHC3PFd9xKYVx7lSuLfMK7sgo6x3+l4dY42GbsWMHyLqH1sTMfyt1LgfXSIKYJozSA==}
+    dependencies:
+      debug: 4.3.4
+      jiti: 1.14.0
+      windicss: 3.5.4
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
+  /@windicss/plugin-utils/1.8.4:
+    resolution: {integrity: sha512-DqJVwAfzlgd8nYSNlmhXOey32pI8UwH7QiOWdFS/AR2O/q9oLDGHDn97Its/kZdfoyhi8ylwZNP2Pk0H7cihhQ==}
+    dependencies:
+      '@antfu/utils': 0.5.2
+      '@windicss/config': 1.8.4
+      debug: 4.3.4
+      fast-glob: 3.2.11
+      magic-string: 0.26.1
+      micromatch: 4.0.5
+      windicss: 3.5.4
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -4362,6 +4394,11 @@ packages:
       supports-color: 7.2.0
     dev: true
 
+  /jiti/1.14.0:
+    resolution: {integrity: sha512-4IwstlaKQc9vCTC+qUXLM1hajy2ImiL9KnLvVYiaHOtS/v3wRjhLlGl121AmgDgx/O43uKmxownJghS5XMya2A==}
+    hasBin: true
+    dev: true
+
   /jpegtran-bin/5.0.2:
     resolution: {integrity: sha512-4FSmgIcr8d5+V6T1+dHbPZjaFH0ogVyP4UVsE+zri7S9YLO4qAT2our4IN3sW3STVgNTbqPermdIgt2XuAJ4EA==}
     engines: {node: '>=10'}
@@ -4476,6 +4513,10 @@ packages:
     resolution: {integrity: sha512-eguHnq22OE3uVoSYG0LVWNP+4ppamWr9+zWBe1bsNcovIMy6huUJFPgy4mGwCd/rnl3vOLGW1MTlu4c57CT1xA==}
     dependencies:
       json-buffer: 3.0.0
+    dev: true
+
+  /kolorist/1.5.1:
+    resolution: {integrity: sha512-lxpCM3HTvquGxKGzHeknB/sUjuVoUElLlfYnXZT73K8geR9jQbroGlSCFBax9/0mpGoD3kzcMLnOlGQPJJNyqQ==}
     dev: true
 
   /less/4.1.2:
@@ -6242,7 +6283,7 @@ packages:
     resolution: {integrity: sha512-UMNLEvgOAQuzK8ji8qIscM3GIrRCWN6MmMXGD4SD5l6cSycgGsCo0tX5xRnfQcoghqct0tjHjcykgI1PyBE2aA==}
     dependencies:
       raw-loader: 0.5.1
-    dev: false
+    dev: true
 
   /scroll-into-view-if-needed/2.2.29:
     resolution: {integrity: sha512-hxpAR6AN+Gh53AdAimHM6C8oTN1ppwVZITihix+WqalywBeFcQ6LdQP5ABNl26nX8GTEL7VT+b8lKpdqq65wXg==}
@@ -7053,6 +7094,20 @@ packages:
       - supports-color
     dev: true
 
+  /vite-plugin-windicss/1.8.4_vite@2.9.5:
+    resolution: {integrity: sha512-LSZAO8BZn3x406GRbYX5t5ONXXJVdqiQtN1qrznLA/Dy5/NzZVhfcrL6N1qEYYO7HsCDT4pLAjTzObvDnM9Y8A==}
+    peerDependencies:
+      vite: ^2.0.1
+    dependencies:
+      '@windicss/plugin-utils': 1.8.4
+      debug: 4.3.4
+      kolorist: 1.5.1
+      vite: 2.9.5_less@4.1.2
+      windicss: 3.5.4
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
   /vite/2.9.5_less@4.1.2:
     resolution: {integrity: sha512-dvMN64X2YEQgSXF1lYabKXw3BbN6e+BL67+P3Vy4MacnY+UzT1AfkHiioFSi9+uiDUiaDy7Ax/LQqivk6orilg==}
     engines: {node: '>=12.2.0'}
@@ -7141,6 +7196,12 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       string-width: 4.2.3
+    dev: true
+
+  /windicss/3.5.4:
+    resolution: {integrity: sha512-x2Iu0a69dtNiKHMkR886lx0WKbZI5GqvXyvGBCJ2VA6rcjKYjnzCA/Ljd6hNQBfqlkSum8J+qAVcCfLzQFI4rQ==}
+    engines: {node: '>= 12'}
+    hasBin: true
     dev: true
 
   /wmf/1.0.2:
