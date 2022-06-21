@@ -70,7 +70,7 @@
     "vite-plugin-html": "2.1.1",
     "vite-plugin-imagemin": "^0.6.1",
     "vite-plugin-imp": "^2.1.7",
-    "vite-plugin-pwa": "^0.11.2"
+    "vite-plugin-pwa": "^0.11.2",
     "vite-plugin-windicss": "^1.8.4",
     "windicss": "^3.5.4"
   }
