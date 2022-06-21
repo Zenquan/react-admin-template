@@ -3,16 +3,16 @@ import reactRefresh from '@vitejs/plugin-react-refresh';
 import vitePluginImp from 'vite-plugin-imp';
 import legacyPlugin from '@vitejs/plugin-legacy';
 import html from 'vite-plugin-html';
+import windiCSS from 'vite-plugin-windicss';
 import { configImageminPlugin } from './imagemin';
 import { configCompressPlugin } from './compress';
 import { configVisualizerConfig } from './visualizer';
 
-export function createVitePlugins(isBuild: boolean, env): Plugin[] {
+export function createVitePlugins(isBuild: boolean, env) {
   const { VITE_APP_TITLE } = env;
 
-  const vitePlugins: Plugin[] = [
+  const vitePlugins: (Plugin | Plugin[])[] = [
     reactRefresh(),
-    // @ts-ignore
     html({
       inject: {
         data: {
@@ -21,10 +21,18 @@ export function createVitePlugins(isBuild: boolean, env): Plugin[] {
       },
     }),
     vitePluginImp({
-      libraryName: 'antd',
-      libraryDirectory: 'es',
-      style: 'true',
+      libList: [
+        {
+          libName: 'antd',
+          libDirectory: 'es',
+          style(name) {
+            // use less
+            return `antd/es/${name}/style/index.js`;
+          },
+        },
+      ],
     }),
+    windiCSS(),
   ];
 
   if (isBuild) {
@@ -47,16 +55,11 @@ export function createVitePlugins(isBuild: boolean, env): Plugin[] {
     vitePlugins.push(configImageminPlugin());
 
     // rollup-plugin-gzip
-    vitePlugins.push(
-      // @ts-ignore
-      configCompressPlugin('gzip', false),
-    );
+    vitePlugins.push(configCompressPlugin('gzip', false));
 
     // rollup-plugin-visualizer
-    vitePlugins.push(
-      // @ts-ignore
-      configVisualizerConfig(isBuild),
-    );
+    vitePlugins.push(configVisualizerConfig(isBuild));
   }
+
   return vitePlugins;
 }
