@@ -8,76 +8,88 @@
       "sub": []
     },
     {
-        "component": "Table",
-        "path": "/table",
-        "key": "table",
-        "icon": "table",
-        "sub": [
+      "component": "Table",
+      "path": "/table",
+      "key": "table",
+      "icon": "table",
+      "sub": [
+        {
+          "component": "EditableTable",
+          "path": "/table/editableTable",
+          "key": "table/editableTable",
+          "sub": [
             {
-                "component": "EditableTable",
-                "path": "/table/editableTable",
-                "key": "table/editableTable"
+              "component": "EditableTable1",
+              "path": "/table/dragSortingTable/1",
+              "key": "table/dragSortingTable/1"
             },
             {
-                "component": "DragSortingTable",
-                "path": "/table/dragSortingTable",
-                "key": "table/dragSortingTable"
+              "component": "EditableTable2",
+              "path": "/table/dragSortingTable/2",
+              "key": "table/dragSortingTable/2"
             }
-        ]
+          ]
+        },
+        {
+          "component": "DragSortingTable",
+          "path": "/table/dragSortingTable",
+          "key": "table/dragSortingTable"
+        }
+      ]
     },
     {
-        "component": "Chart",
-        "path": "/chart",
-        "key": "chart",
-        "icon": "chart",
-        "sub": [
-            {
-                "component": "LineChart",
-                "path": "/chart/lineChart",
-                "key": "chart/lineChart"
-            },
-            {
-                "component": "PieChart",
-                "path": "/chart/pieChart",
-                "key": "chart/pieChart"
-            }
-        ]
+      "component": "Chart",
+      "path": "/chart",
+      "key": "chart",
+      "icon": "chart",
+      "sub": [
+        {
+          "component": "LineChart",
+          "path": "/chart/lineChart",
+          "key": "chart/lineChart"
+        },
+        {
+          "component": "PieChart",
+          "path": "/chart/pieChart",
+          "key": "chart/pieChart"
+        }
+      ]
     },
     {
-        "component": "Components",
-        "path": "/components",
-        "key": "components",
-        "icon": "components",
-        "sub": [
-            {
-                "component": "RichText",
-                "path": "/components/richText",
-                "key": "components/richText"
-            },
-            {
-                "component": "Markdown",
-                "path": "/components/markdown",
-                "key": "components/markdown"
-            },
-            {
-                "component": "JSON Editor",
-                "path": "/components/jsonEditor",
-                "key": "components/jsonEditor"
-            }
-        ]
+      "component": "Components",
+      "path": "/components",
+      "key": "components",
+      "icon": "components",
+      "sub": [
+        {
+          "component": "RichText",
+          "path": "/components/richText",
+          "key": "components/richText"
+        },
+        {
+          "component": "Markdown",
+          "path": "/components/markdown",
+          "key": "components/markdown"
+        },
+        {
+          "component": "JSON Editor",
+          "path": "/components/jsonEditor",
+          "key": "components/jsonEditor"
+        }
+      ]
     },
     {
-        "component": "Excel",
-        "path": "/excel",
-        "key": "excel",
-        "icon": "excel",
-        "sub": [
-            {
-                "component": "Export Excel",
-                "path": "/excel/export",
-                "key": "excel/export"
-            }
-        ]
+      "component": "Excel",
+      "path": "/excel",
+      "key": "excel",
+      "icon": "excel",
+      "sub": [
+        {
+          "component": "Export Excel",
+          "path": "/excel/export",
+          "key": "excel/export"
+        }
+      ]
     },
     {
       "component": "404",
@@ -94,11 +106,11 @@
       "key": "components",
       "icon": "components",
       "sub": [
-          {
-              "component": "RichText",
-              "path": "/components/richText",
-              "key": "/components/richText"
-          }
+        {
+          "component": "RichText",
+          "path": "/components/richText",
+          "key": "/components/richText"
+        }
       ]
     },
     {
