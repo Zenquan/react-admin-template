@@ -5,6 +5,16 @@ import { Spin, Space } from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';
 import random from 'number-random';
 import CommonRoute from '/@/components/CommonRoute';
+import Dashboard from '/@/pages/Dashboard';
+import EditableTable from '/@/pages/Table/EditableTable';
+import DragSortingTable from '/@/pages/Table/DragSortingTable';
+import LineChart from '/@/pages/Chart/LineChart';
+import PieChart from '/@/pages/Chart/PieChart';
+import RichText from '/@/pages/Components/RichText';
+import Markdown from '/@/pages/Components/Markdown';
+import JsonEditor from '/@/pages/Components/JsonEditor';
+import ExcelExport from '/@/pages/Excel/Export';
+import NotFound from '/@/pages/NotFound';
 
 const routes: Array<{
   component:
@@ -13,43 +23,43 @@ const routes: Array<{
   path?: string;
 }> = [
   {
-    component: lazy(() => import('/@/pages/Dashboard')),
+    component: Dashboard,
     path: '/dashboard',
   },
   {
-    component: lazy(() => import('/@/pages/Table/EditableTable')),
+    component: EditableTable,
     path: '/table/editableTable',
   },
   {
-    component: lazy(() => import('/@/pages/Table/DragSortingTable')),
+    component: DragSortingTable,
     path: '/table/dragSortingTable',
   },
   {
-    component: lazy(() => import('/@/pages/Chart/LineChart')),
+    component: LineChart,
     path: '/chart/lineChart',
   },
   {
-    component: lazy(() => import('/@/pages/Chart/PieChart')),
+    component: PieChart,
     path: '/chart/pieChart',
   },
   {
-    component: lazy(() => import('/@/pages/Components/RichText')),
+    component: RichText,
     path: '/components/richText',
   },
   {
-    component: lazy(() => import('/@/pages/Components/Markdown')),
+    component: Markdown,
     path: '/components/markdown',
   },
   {
-    component: lazy(() => import('/@/pages/Components/JsonEditor')),
+    component: JsonEditor,
     path: '/components/jsonEditor',
   },
   {
-    component: lazy(() => import('/@/pages/Excel/Export')),
+    component: ExcelExport,
     path: '/excel/export',
   },
   {
-    component: lazy(() => import('/@/pages/NotFound')),
+    component: NotFound,
   },
 ];
 
